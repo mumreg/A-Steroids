@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F017422D02003C01DB /* UIKit.framework */; };
+		ED5EC8F317422D02003C01DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F217422D02003C01DB /* Foundation.framework */; };
+		ED5EC8F517422D02003C01DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F417422D02003C01DB /* CoreGraphics.framework */; };
+		ED5EC8FB17422D02003C01DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC8F917422D02003C01DB /* InfoPlist.strings */; };
+		ED5EC8FD17422D02003C01DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC8FC17422D02003C01DB /* main.m */; };
+		ED5EC90117422D03003C01DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC90017422D03003C01DB /* AppDelegate.m */; };
+		ED5EC90317422D03003C01DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90217422D03003C01DB /* Default.png */; };
+		ED5EC90517422D03003C01DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90417422D03003C01DB /* Default@2x.png */; };
+		ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90617422D03003C01DB /* Default-568h@2x.png */; };
+		EDD7EB08174A77990006D727 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB07174A77990006D727 /* OpenGLES.framework */; };
+		EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD7EB0A174A77DD0006D727 /* GLView.m */; };
+		EDD7EB0D174A7A8D0006D727 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ED5EC8ED17422D02003C01DB /* A-Steroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Steroids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED5EC8F017422D02003C01DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		ED5EC8F217422D02003C01DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ED5EC8F417422D02003C01DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		ED5EC8F817422D02003C01DB /* A-Steroids-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "A-Steroids-Info.plist"; sourceTree = "<group>"; };
+		ED5EC8FA17422D02003C01DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ED5EC8FC17422D02003C01DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED5EC8FE17422D02003C01DB /* A-Steroids-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A-Steroids-Prefix.pch"; sourceTree = "<group>"; };
+		ED5EC8FF17422D02003C01DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED5EC90017422D03003C01DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED5EC90217422D03003C01DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		ED5EC90417422D03003C01DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		ED5EC90617422D03003C01DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EDD7EB07174A77990006D727 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		EDD7EB09174A77DD0006D727 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = "A-Steroids/Classes/GLView.h"; sourceTree = "<group>"; };
+		EDD7EB0A174A77DD0006D727 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = "A-Steroids/Classes/GLView.m"; sourceTree = "<group>"; };
+		EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ED5EC8EA17422D02003C01DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDD7EB0D174A7A8D0006D727 /* QuartzCore.framework in Frameworks */,
+				EDD7EB08174A77990006D727 /* OpenGLES.framework in Frameworks */,
+				ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */,
+				ED5EC8F317422D02003C01DB /* Foundation.framework in Frameworks */,
+				ED5EC8F517422D02003C01DB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED5EC8E417422D02003C01DB = {
+			isa = PBXGroup;
+			children = (
+				ED5EC8F617422D02003C01DB /* A-Steroids */,
+				ED5EC8EF17422D02003C01DB /* Frameworks */,
+				ED5EC8EE17422D02003C01DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED5EC8EE17422D02003C01DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ED5EC8ED17422D02003C01DB /* A-Steroids.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED5EC8EF17422D02003C01DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */,
+				EDD7EB07174A77990006D727 /* OpenGLES.framework */,
+				ED5EC8F017422D02003C01DB /* UIKit.framework */,
+				ED5EC8F217422D02003C01DB /* Foundation.framework */,
+				ED5EC8F417422D02003C01DB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED5EC8F617422D02003C01DB /* A-Steroids */ = {
+			isa = PBXGroup;
+			children = (
+				EDFD63D3174A82D700BA899A /* Shaders */,
+				EDD7EB0E174A7A9A0006D727 /* Classes */,
+				ED5EC8FF17422D02003C01DB /* AppDelegate.h */,
+				ED5EC90017422D03003C01DB /* AppDelegate.m */,
+				ED5EC8F717422D02003C01DB /* Supporting Files */,
+			);
+			path = "A-Steroids";
+			sourceTree = "<group>";
+		};
+		ED5EC8F717422D02003C01DB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ED5EC8F817422D02003C01DB /* A-Steroids-Info.plist */,
+				ED5EC8F917422D02003C01DB /* InfoPlist.strings */,
+				ED5EC8FC17422D02003C01DB /* main.m */,
+				ED5EC8FE17422D02003C01DB /* A-Steroids-Prefix.pch */,
+				ED5EC90217422D03003C01DB /* Default.png */,
+				ED5EC90417422D03003C01DB /* Default@2x.png */,
+				ED5EC90617422D03003C01DB /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDD7EB0E174A7A9A0006D727 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EDD7EB09174A77DD0006D727 /* GLView.h */,
+				EDD7EB0A174A77DD0006D727 /* GLView.m */,
+			);
+			name = Classes;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		EDFD63D3174A82D700BA899A /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ED5EC8EC17422D02003C01DB /* A-Steroids */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED5EC90A17422D03003C01DB /* Build configuration list for PBXNativeTarget "A-Steroids" */;
+			buildPhases = (
+				ED5EC8E917422D02003C01DB /* Sources */,
+				ED5EC8EA17422D02003C01DB /* Frameworks */,
+				ED5EC8EB17422D02003C01DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "A-Steroids";
+			productName = "A-Steroids";
+			productReference = ED5EC8ED17422D02003C01DB /* A-Steroids.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ED5EC8E517422D02003C01DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Mikhail Perekhodtsev";
+			};
+			buildConfigurationList = ED5EC8E817422D02003C01DB /* Build configuration list for PBXProject "A-Steroids" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ED5EC8E417422D02003C01DB;
+			productRefGroup = ED5EC8EE17422D02003C01DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED5EC8EC17422D02003C01DB /* A-Steroids */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ED5EC8EB17422D02003C01DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED5EC8FB17422D02003C01DB /* InfoPlist.strings in Resources */,
+				ED5EC90317422D03003C01DB /* Default.png in Resources */,
+				ED5EC90517422D03003C01DB /* Default@2x.png in Resources */,
+				ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED5EC8E917422D02003C01DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED5EC8FD17422D02003C01DB /* main.m in Sources */,
+				ED5EC90117422D03003C01DB /* AppDelegate.m in Sources */,
+				EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ED5EC8F917422D02003C01DB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ED5EC8FA17422D02003C01DB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ED5EC90817422D03003C01DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED5EC90917422D03003C01DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED5EC90B17422D03003C01DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "A-Steroids/A-Steroids-Prefix.pch";
+				INFOPLIST_FILE = "A-Steroids/A-Steroids-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ED5EC90C17422D03003C01DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "A-Steroids/A-Steroids-Prefix.pch";
+				INFOPLIST_FILE = "A-Steroids/A-Steroids-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ED5EC8E817422D02003C01DB /* Build configuration list for PBXProject "A-Steroids" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED5EC90817422D03003C01DB /* Debug */,
+				ED5EC90917422D03003C01DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ED5EC90A17422D03003C01DB /* Build configuration list for PBXNativeTarget "A-Steroids" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED5EC90B17422D03003C01DB /* Debug */,
+				ED5EC90C17422D03003C01DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ED5EC8E517422D02003C01DB /* Project object */;
+}
