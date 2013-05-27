@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
+		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
 		ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F017422D02003C01DB /* UIKit.framework */; };
 		ED5EC8F317422D02003C01DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F217422D02003C01DB /* Foundation.framework */; };
 		ED5EC8F517422D02003C01DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F417422D02003C01DB /* CoreGraphics.framework */; };
@@ -22,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = Classes/ShaderProgram.cpp; sourceTree = "<group>"; };
+		ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = Classes/ShaderProgram.h; sourceTree = "<group>"; };
+		ED2C9A581753D12F00D0C2F8 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = Classes/GameConfig.h; sourceTree = "<group>"; };
+		ED2C9A591753D5F900D0C2F8 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = Classes/Utils.cpp; sourceTree = "<group>"; };
+		ED2C9A5A1753D5F900D0C2F8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
 		ED5EC8ED17422D02003C01DB /* A-Steroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Steroids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5EC8F017422D02003C01DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED5EC8F217422D02003C01DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +101,9 @@
 				ED5EC8FF17422D02003C01DB /* AppDelegate.h */,
 				ED5EC90017422D03003C01DB /* AppDelegate.m */,
 				ED5EC8F717422D02003C01DB /* Supporting Files */,
+				ED2C9A581753D12F00D0C2F8 /* GameConfig.h */,
+				ED2C9A591753D5F900D0C2F8 /* Utils.cpp */,
+				ED2C9A5A1753D5F900D0C2F8 /* Utils.h */,
 			);
 			path = "A-Steroids";
 			sourceTree = "<group>";
@@ -125,6 +135,8 @@
 		EDFD63D3174A82D700BA899A /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */,
+				ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -197,6 +209,8 @@
 				ED5EC8FD17422D02003C01DB /* main.m in Sources */,
 				ED5EC90117422D03003C01DB /* AppDelegate.m in Sources */,
 				EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */,
+				ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */,
+				ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

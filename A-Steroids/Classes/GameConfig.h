@@ -9,6 +9,4 @@
 #ifndef A_Steroids_GameConfig_h
 #define A_Steroids_GameConfig_h
 
-
-
 #endif

@@ -11,4 +11,6 @@
 
 #include <iostream>
 
+extern void readFileToBuffer(const char *fileName, unsigned char *buffer);
+
 #endif /* defined(__A_Steroids__Utils__) */
