@@ -18,6 +18,14 @@
 		ED5EC90317422D03003C01DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90217422D03003C01DB /* Default.png */; };
 		ED5EC90517422D03003C01DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90417422D03003C01DB /* Default@2x.png */; };
 		ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90617422D03003C01DB /* Default-568h@2x.png */; };
+		ED8031D91771E6330025BD9E /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED8031D71771E6330025BD9E /* Texture.cpp */; };
+		ED91D9EA1770862100D12521 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9E81770862100D12521 /* Sprite.cpp */; };
+		ED91D9ED1770862E00D12521 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EB1770862E00D12521 /* Layer.cpp */; };
+		ED91D9F11770898900D12521 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EF1770898900D12521 /* Image.cpp */; };
+		ED91D9F6177089DB00D12521 /* Image_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9F5177089DB00D12521 /* Image_objc.m */; };
+		EDBC7000176F01B20049BD82 /* Texture_and_color.fsh in Sources */ = {isa = PBXBuildFile; fileRef = EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */; };
+		EDBC7001176F01B20049BD82 /* Texture_and_color.vsh in Sources */ = {isa = PBXBuildFile; fileRef = EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */; };
+		EDBC7006176F15AD0049BD82 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDBC7004176F15AD0049BD82 /* Node.cpp */; };
 		EDD7EB08174A77990006D727 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB07174A77990006D727 /* OpenGLES.framework */; };
 		EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD7EB0A174A77DD0006D727 /* GLView.m */; };
 		EDD7EB0D174A7A8D0006D727 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */; };
@@ -42,6 +50,21 @@
 		ED5EC90217422D03003C01DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ED5EC90417422D03003C01DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ED5EC90617422D03003C01DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		ED8031D71771E6330025BD9E /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = "A-Steroids/Classes/Texture.cpp"; sourceTree = "<group>"; };
+		ED8031D81771E6330025BD9E /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = "A-Steroids/Classes/Texture.h"; sourceTree = "<group>"; };
+		ED91D9E81770862100D12521 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = "A-Steroids/Classes/Sprite.cpp"; sourceTree = "<group>"; };
+		ED91D9E91770862100D12521 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = "A-Steroids/Classes/Sprite.h"; sourceTree = "<group>"; };
+		ED91D9EB1770862E00D12521 /* Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Layer.cpp; path = "A-Steroids/Classes/Layer.cpp"; sourceTree = "<group>"; };
+		ED91D9EC1770862E00D12521 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Layer.h; path = "A-Steroids/Classes/Layer.h"; sourceTree = "<group>"; };
+		ED91D9EE1770869F00D12521 /* datatypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = datatypes.h; path = "A-Steroids/Classes/datatypes.h"; sourceTree = "<group>"; };
+		ED91D9EF1770898900D12521 /* Image.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Image.cpp; path = "A-Steroids/Classes/Image.cpp"; sourceTree = "<group>"; };
+		ED91D9F01770898900D12521 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = "A-Steroids/Classes/Image.h"; sourceTree = "<group>"; };
+		ED91D9F4177089DB00D12521 /* Image_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image_objc.h; path = "A-Steroids/Classes/Image_objc.h"; sourceTree = "<group>"; };
+		ED91D9F5177089DB00D12521 /* Image_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image_objc.m; path = "A-Steroids/Classes/Image_objc.m"; sourceTree = "<group>"; };
+		EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Texture_and_color.fsh; path = Resources/Texture_and_color.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Texture_and_color.vsh; path = Resources/Texture_and_color.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		EDBC7004176F15AD0049BD82 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = "A-Steroids/Classes/Node.cpp"; sourceTree = "<group>"; };
+		EDBC7005176F15AD0049BD82 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = "A-Steroids/Classes/Node.h"; sourceTree = "<group>"; };
 		EDD7EB07174A77990006D727 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EDD7EB09174A77DD0006D727 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = "A-Steroids/Classes/GLView.h"; sourceTree = "<group>"; };
 		EDD7EB0A174A77DD0006D727 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = "A-Steroids/Classes/GLView.m"; sourceTree = "<group>"; };
@@ -96,7 +119,6 @@
 		ED5EC8F617422D02003C01DB /* A-Steroids */ = {
 			isa = PBXGroup;
 			children = (
-				EDFD63D3174A82D700BA899A /* Shaders */,
 				EDD7EB0E174A7A9A0006D727 /* Classes */,
 				ED5EC8FF17422D02003C01DB /* AppDelegate.h */,
 				ED5EC90017422D03003C01DB /* AppDelegate.m */,
@@ -122,9 +144,64 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		ED91D9F21770899000D12521 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				ED91D9F31770899700D12521 /* iOS */,
+				ED91D9EF1770898900D12521 /* Image.cpp */,
+				ED91D9F01770898900D12521 /* Image.h */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		ED91D9F31770899700D12521 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				ED91D9F4177089DB00D12521 /* Image_objc.h */,
+				ED91D9F5177089DB00D12521 /* Image_objc.m */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		EDBC6FFD176F00D90049BD82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */,
+				EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EDBC7002176F15580049BD82 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		EDBC7003176F15630049BD82 /* Base Engine */ = {
+			isa = PBXGroup;
+			children = (
+				ED91D9F21770899000D12521 /* Image */,
+				EDBC7004176F15AD0049BD82 /* Node.cpp */,
+				EDBC7005176F15AD0049BD82 /* Node.h */,
+				ED91D9E81770862100D12521 /* Sprite.cpp */,
+				ED91D9E91770862100D12521 /* Sprite.h */,
+				ED91D9EB1770862E00D12521 /* Layer.cpp */,
+				ED91D9EC1770862E00D12521 /* Layer.h */,
+				ED91D9EE1770869F00D12521 /* datatypes.h */,
+				ED8031D71771E6330025BD9E /* Texture.cpp */,
+				ED8031D81771E6330025BD9E /* Texture.h */,
+			);
+			name = "Base Engine";
+			sourceTree = "<group>";
+		};
 		EDD7EB0E174A7A9A0006D727 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EDFD63D3174A82D700BA899A /* Shaders */,
+				EDBC7003176F15630049BD82 /* Base Engine */,
+				EDBC7002176F15580049BD82 /* Scenes */,
 				EDD7EB09174A77DD0006D727 /* GLView.h */,
 				EDD7EB0A174A77DD0006D727 /* GLView.m */,
 			);
@@ -135,10 +212,12 @@
 		EDFD63D3174A82D700BA899A /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				EDBC6FFD176F00D90049BD82 /* Resources */,
 				ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */,
 				ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */,
 			);
 			name = Shaders;
+			path = "A-Steroids";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +290,14 @@
 				EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */,
 				ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */,
 				ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */,
+				EDBC7000176F01B20049BD82 /* Texture_and_color.fsh in Sources */,
+				EDBC7001176F01B20049BD82 /* Texture_and_color.vsh in Sources */,
+				EDBC7006176F15AD0049BD82 /* Node.cpp in Sources */,
+				ED91D9EA1770862100D12521 /* Sprite.cpp in Sources */,
+				ED91D9ED1770862E00D12521 /* Layer.cpp in Sources */,
+				ED91D9F11770898900D12521 /* Image.cpp in Sources */,
+				ED91D9F6177089DB00D12521 /* Image_objc.m in Sources */,
+				ED8031D91771E6330025BD9E /* Texture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

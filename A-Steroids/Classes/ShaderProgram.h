@@ -16,7 +16,7 @@
 
 class ShaderProgram {
 public:
-    ShaderProgram(const char *shaderPath);
+    ShaderProgram(const char *shaderName);
     void linkShader();
     void addAttribute(const char *name, GLuint index);
     

@@ -1,0 +1,19 @@
+//
+//  Image.h
+//  A-Steroids
+//
+//  Created by Mikhail Perekhodtsev on 18.06.13.
+//  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
+//
+
+#ifndef __A_Steroids__Image__
+#define __A_Steroids__Image__
+
+#include <iostream>
+
+class Image {
+public:
+    Image(const char *fileName);
+};
+
+#endif /* defined(__A_Steroids__Image__) */

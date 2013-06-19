@@ -11,22 +11,27 @@
 
 using namespace std;
 
-ShaderProgram::ShaderProgram(const char *shaderPath)
+ShaderProgram::ShaderProgram(const char *shaderName)
 {
-    string vertexName = string(shaderPath) + string(".vsh");
-    readFileToBuffer(vertexName.c_str(), _vertexBuffer);
+    string vertexName = string(shaderName) + string(".vsh");
+    int vertexStatus = readFileToBuffer(vertexName.c_str(), _vertexBuffer);
     
-    string fragmentName = string(shaderPath) + string(".fsh");
-    readFileToBuffer(fragmentName.c_str(), _fragmentBuffer);
+    string fragmentName = string(shaderName) + string(".fsh");
+    int fragmentStatus = readFileToBuffer(fragmentName.c_str(), _fragmentBuffer);
     
-    _program = glCreateProgram();
-    
-    _vertexShader = compileShader(GL_VERTEX_SHADER, (GLchar *)_vertexBuffer);
-    _fragmentShader = compileShader(GL_FRAGMENT_SHADER, (GLchar *)_fragmentBuffer);
-    
-    if (_vertexShader != -1 && _fragmentShader != -1) {
-        glAttachShader(_program, _vertexShader);
-        glAttachShader(_program, _fragmentShader);
+    if (fragmentStatus == 0 && vertexStatus == 0) {
+        _program = glCreateProgram();
+        
+        _vertexShader = compileShader(GL_VERTEX_SHADER, (GLchar *)_vertexBuffer);
+        _fragmentShader = compileShader(GL_FRAGMENT_SHADER, (GLchar *)_fragmentBuffer);
+        
+        if (_vertexShader != -1 && _fragmentShader != -1) {
+            glAttachShader(_program, _vertexShader);
+            glAttachShader(_program, _fragmentShader);
+        }
+    }
+    else {
+        printf("Error! Couldn't read shader files!");
     }
 }
 
