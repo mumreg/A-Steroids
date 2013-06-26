@@ -1,15 +1,9 @@
-#ifdef GL_ES
-precision lowp float;
-#endif
+varying lowp vec4 colorOut;
+varying lowp vec2 texCoordOut;
 
-varying vec4 v_fragmentColor;
-varying vec2 v_texCoord;
-
-uniform sampler2D u_texture;
+uniform sampler2D texture;
 
 void main()
 {
-    vec4 texColor = texture2D(u_texture, v_texCoord);
-    
-	gl_FragColor = texColor + v_fragmentColor;
+	gl_FragColor = colorOut * texture2D(texture, texCoordOut);
 }

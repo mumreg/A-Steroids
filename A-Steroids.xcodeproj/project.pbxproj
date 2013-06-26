@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
 		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
+		ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3615F81779B23F009D852F /* FileUtils.cpp */; };
+		ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3615FD1779B25D009D852F /* FileUtils_objc.m */; };
 		ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F017422D02003C01DB /* UIKit.framework */; };
 		ED5EC8F317422D02003C01DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F217422D02003C01DB /* Foundation.framework */; };
 		ED5EC8F517422D02003C01DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F417422D02003C01DB /* CoreGraphics.framework */; };
 		ED5EC8FB17422D02003C01DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC8F917422D02003C01DB /* InfoPlist.strings */; };
-		ED5EC8FD17422D02003C01DB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC8FC17422D02003C01DB /* main.m */; };
-		ED5EC90117422D03003C01DB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC90017422D03003C01DB /* AppDelegate.m */; };
+		ED5EC8FD17422D02003C01DB /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC8FC17422D02003C01DB /* main.mm */; };
+		ED5EC90117422D03003C01DB /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED5EC90017422D03003C01DB /* AppDelegate.mm */; };
 		ED5EC90317422D03003C01DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90217422D03003C01DB /* Default.png */; };
 		ED5EC90517422D03003C01DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90417422D03003C01DB /* Default@2x.png */; };
 		ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED5EC90617422D03003C01DB /* Default-568h@2x.png */; };
+		ED7DB6111776F87E00C6CD99 /* Texture_and_color.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */; };
+		ED7DB6121776F87E00C6CD99 /* Texture_and_color.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */; };
 		ED8031D91771E6330025BD9E /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED8031D71771E6330025BD9E /* Texture.cpp */; };
 		ED91D9EA1770862100D12521 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9E81770862100D12521 /* Sprite.cpp */; };
 		ED91D9ED1770862E00D12521 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EB1770862E00D12521 /* Layer.cpp */; };
 		ED91D9F11770898900D12521 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EF1770898900D12521 /* Image.cpp */; };
 		ED91D9F6177089DB00D12521 /* Image_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9F5177089DB00D12521 /* Image_objc.m */; };
-		EDBC7000176F01B20049BD82 /* Texture_and_color.fsh in Sources */ = {isa = PBXBuildFile; fileRef = EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */; };
-		EDBC7001176F01B20049BD82 /* Texture_and_color.vsh in Sources */ = {isa = PBXBuildFile; fileRef = EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */; };
+		EDB0A008177301D300E2365E /* ShadersCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A006177301D300E2365E /* ShadersCache.cpp */; };
+		EDB7C79D177B4D7B00415231 /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7C79C177B4D7A00415231 /* item_powerup_fish.png */; };
 		EDBC7006176F15AD0049BD82 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDBC7004176F15AD0049BD82 /* Node.cpp */; };
 		EDD7EB08174A77990006D727 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB07174A77990006D727 /* OpenGLES.framework */; };
-		EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EDD7EB0A174A77DD0006D727 /* GLView.m */; };
+		EDD7EB0B174A77DD0006D727 /* GLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDD7EB0A174A77DD0006D727 /* GLView.mm */; };
 		EDD7EB0D174A7A8D0006D727 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,16 +41,20 @@
 		ED2C9A581753D12F00D0C2F8 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = Classes/GameConfig.h; sourceTree = "<group>"; };
 		ED2C9A591753D5F900D0C2F8 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utils.cpp; path = Classes/Utils.cpp; sourceTree = "<group>"; };
 		ED2C9A5A1753D5F900D0C2F8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
+		ED3615F81779B23F009D852F /* FileUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FileUtils.cpp; path = "A-Steroids/Classes/FileUtils.cpp"; sourceTree = "<group>"; };
+		ED3615F91779B23F009D852F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = "A-Steroids/Classes/FileUtils.h"; sourceTree = "<group>"; };
+		ED3615FC1779B25D009D852F /* FileUtils_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils_objc.h; path = "A-Steroids/Classes/FileUtils_objc.h"; sourceTree = "<group>"; };
+		ED3615FD1779B25D009D852F /* FileUtils_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileUtils_objc.m; path = "A-Steroids/Classes/FileUtils_objc.m"; sourceTree = "<group>"; };
 		ED5EC8ED17422D02003C01DB /* A-Steroids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "A-Steroids.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5EC8F017422D02003C01DB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ED5EC8F217422D02003C01DB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ED5EC8F417422D02003C01DB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		ED5EC8F817422D02003C01DB /* A-Steroids-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "A-Steroids-Info.plist"; sourceTree = "<group>"; };
 		ED5EC8FA17422D02003C01DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ED5EC8FC17422D02003C01DB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED5EC8FC17422D02003C01DB /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		ED5EC8FE17422D02003C01DB /* A-Steroids-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "A-Steroids-Prefix.pch"; sourceTree = "<group>"; };
 		ED5EC8FF17422D02003C01DB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		ED5EC90017422D03003C01DB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED5EC90017422D03003C01DB /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		ED5EC90217422D03003C01DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		ED5EC90417422D03003C01DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ED5EC90617422D03003C01DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -61,13 +69,16 @@
 		ED91D9F01770898900D12521 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = "A-Steroids/Classes/Image.h"; sourceTree = "<group>"; };
 		ED91D9F4177089DB00D12521 /* Image_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image_objc.h; path = "A-Steroids/Classes/Image_objc.h"; sourceTree = "<group>"; };
 		ED91D9F5177089DB00D12521 /* Image_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image_objc.m; path = "A-Steroids/Classes/Image_objc.m"; sourceTree = "<group>"; };
+		EDB0A006177301D300E2365E /* ShadersCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShadersCache.cpp; path = Classes/ShadersCache.cpp; sourceTree = "<group>"; };
+		EDB0A007177301D300E2365E /* ShadersCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadersCache.h; path = Classes/ShadersCache.h; sourceTree = "<group>"; };
+		EDB7C79C177B4D7A00415231 /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_powerup_fish.png; path = "A-Steroids/item_powerup_fish.png"; sourceTree = "<group>"; };
 		EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Texture_and_color.fsh; path = Resources/Texture_and_color.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Texture_and_color.vsh; path = Resources/Texture_and_color.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		EDBC7004176F15AD0049BD82 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Node.cpp; path = "A-Steroids/Classes/Node.cpp"; sourceTree = "<group>"; };
 		EDBC7005176F15AD0049BD82 /* Node.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Node.h; path = "A-Steroids/Classes/Node.h"; sourceTree = "<group>"; };
 		EDD7EB07174A77990006D727 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EDD7EB09174A77DD0006D727 /* GLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLView.h; path = "A-Steroids/Classes/GLView.h"; sourceTree = "<group>"; };
-		EDD7EB0A174A77DD0006D727 /* GLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLView.m; path = "A-Steroids/Classes/GLView.m"; sourceTree = "<group>"; };
+		EDD7EB0A174A77DD0006D727 /* GLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLView.mm; path = "A-Steroids/Classes/GLView.mm"; sourceTree = "<group>"; };
 		EDD7EB0C174A7A8D0006D727 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -87,6 +98,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED3615F71779B21E009D852F /* File Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED3615FB1779B245009D852F /* iOS */,
+				ED3615F81779B23F009D852F /* FileUtils.cpp */,
+				ED3615F91779B23F009D852F /* FileUtils.h */,
+			);
+			name = "File Utils";
+			sourceTree = "<group>";
+		};
+		ED3615FB1779B245009D852F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				ED3615FC1779B25D009D852F /* FileUtils_objc.h */,
+				ED3615FD1779B25D009D852F /* FileUtils_objc.m */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		ED5EC8E417422D02003C01DB = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +149,10 @@
 		ED5EC8F617422D02003C01DB /* A-Steroids */ = {
 			isa = PBXGroup;
 			children = (
+				EDF1E1151779B01B00D99CB2 /* Resources */,
 				EDD7EB0E174A7A9A0006D727 /* Classes */,
 				ED5EC8FF17422D02003C01DB /* AppDelegate.h */,
-				ED5EC90017422D03003C01DB /* AppDelegate.m */,
+				ED5EC90017422D03003C01DB /* AppDelegate.mm */,
 				ED5EC8F717422D02003C01DB /* Supporting Files */,
 				ED2C9A581753D12F00D0C2F8 /* GameConfig.h */,
 				ED2C9A591753D5F900D0C2F8 /* Utils.cpp */,
@@ -135,7 +166,7 @@
 			children = (
 				ED5EC8F817422D02003C01DB /* A-Steroids-Info.plist */,
 				ED5EC8F917422D02003C01DB /* InfoPlist.strings */,
-				ED5EC8FC17422D02003C01DB /* main.m */,
+				ED5EC8FC17422D02003C01DB /* main.mm */,
 				ED5EC8FE17422D02003C01DB /* A-Steroids-Prefix.pch */,
 				ED5EC90217422D03003C01DB /* Default.png */,
 				ED5EC90417422D03003C01DB /* Default@2x.png */,
@@ -199,14 +230,23 @@
 		EDD7EB0E174A7A9A0006D727 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EDB7C79C177B4D7A00415231 /* item_powerup_fish.png */,
+				ED3615F71779B21E009D852F /* File Utils */,
 				EDFD63D3174A82D700BA899A /* Shaders */,
 				EDBC7003176F15630049BD82 /* Base Engine */,
 				EDBC7002176F15580049BD82 /* Scenes */,
 				EDD7EB09174A77DD0006D727 /* GLView.h */,
-				EDD7EB0A174A77DD0006D727 /* GLView.m */,
+				EDD7EB0A174A77DD0006D727 /* GLView.mm */,
 			);
 			name = Classes;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		EDF1E1151779B01B00D99CB2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		EDFD63D3174A82D700BA899A /* Shaders */ = {
@@ -215,6 +255,8 @@
 				EDBC6FFD176F00D90049BD82 /* Resources */,
 				ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */,
 				ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */,
+				EDB0A006177301D300E2365E /* ShadersCache.cpp */,
+				EDB0A007177301D300E2365E /* ShadersCache.h */,
 			);
 			name = Shaders;
 			path = "A-Steroids";
@@ -271,10 +313,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED7DB6111776F87E00C6CD99 /* Texture_and_color.fsh in Resources */,
+				ED7DB6121776F87E00C6CD99 /* Texture_and_color.vsh in Resources */,
 				ED5EC8FB17422D02003C01DB /* InfoPlist.strings in Resources */,
 				ED5EC90317422D03003C01DB /* Default.png in Resources */,
 				ED5EC90517422D03003C01DB /* Default@2x.png in Resources */,
 				ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */,
+				EDB7C79D177B4D7B00415231 /* item_powerup_fish.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,19 +330,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED5EC8FD17422D02003C01DB /* main.m in Sources */,
-				ED5EC90117422D03003C01DB /* AppDelegate.m in Sources */,
-				EDD7EB0B174A77DD0006D727 /* GLView.m in Sources */,
+				ED5EC8FD17422D02003C01DB /* main.mm in Sources */,
+				ED5EC90117422D03003C01DB /* AppDelegate.mm in Sources */,
+				EDD7EB0B174A77DD0006D727 /* GLView.mm in Sources */,
 				ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */,
 				ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */,
-				EDBC7000176F01B20049BD82 /* Texture_and_color.fsh in Sources */,
-				EDBC7001176F01B20049BD82 /* Texture_and_color.vsh in Sources */,
 				EDBC7006176F15AD0049BD82 /* Node.cpp in Sources */,
 				ED91D9EA1770862100D12521 /* Sprite.cpp in Sources */,
 				ED91D9ED1770862E00D12521 /* Layer.cpp in Sources */,
 				ED91D9F11770898900D12521 /* Image.cpp in Sources */,
 				ED91D9F6177089DB00D12521 /* Image_objc.m in Sources */,
 				ED8031D91771E6330025BD9E /* Texture.cpp in Sources */,
+				EDB0A008177301D300E2365E /* ShadersCache.cpp in Sources */,
+				ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */,
+				ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "A-Steroids/A-Steroids-Prefix.pch";
 				INFOPLIST_FILE = "A-Steroids/A-Steroids-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -388,6 +435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "A-Steroids/A-Steroids-Prefix.pch";
 				INFOPLIST_FILE = "A-Steroids/A-Steroids-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

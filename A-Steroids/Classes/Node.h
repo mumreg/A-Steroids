@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <vector>
-#include "ShaderProgram.h"
+#include "ShadersCache.h"
 #include "datatypes.h"
 
 class Node {
@@ -29,6 +29,7 @@ public:
     virtual const float getRotation();
     
     void setShaderProgram(const char *programName);
+    ShaderProgram *getShaderProgram();
     
 private:
     ShaderProgram *_shaderProgram;

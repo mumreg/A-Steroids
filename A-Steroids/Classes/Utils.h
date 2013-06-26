@@ -11,6 +11,7 @@
 
 #include <iostream>
 
-extern int readFileToBuffer(const char *fileName, unsigned char *buffer);
+extern unsigned char * readFileToBuffer(const char *fileName);
+extern void setMatrixIdentity(float *mat, int n);
 
 #endif /* defined(__A_Steroids__Utils__) */

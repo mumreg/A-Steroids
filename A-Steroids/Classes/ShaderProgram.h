@@ -14,11 +14,24 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
+#define kShaderTextureAndColor "Texture_and_color"
+
+#define kShaderMVUniform        "modelView"
+#define kShaderProjectUniform   "projection"
+#define kShaderTextureUniform   "texture"
+
+#define kShaderPositionAttr     "position"
+#define kShaderTextureAttr      "texCoordIn"
+#define kShaderColorAttr        "colorIn"
+
 class ShaderProgram {
 public:
     ShaderProgram(const char *shaderName);
     void linkShader();
-    void addAttribute(const char *name, GLuint index);
+    void updateUniforms();
+    void use();
+    void setBuiltinUniforms();
+    GLuint getProgram();
     
 private:
     GLuint compileShader(GLenum type, const GLchar *source);

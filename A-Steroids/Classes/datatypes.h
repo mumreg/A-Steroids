@@ -9,6 +9,8 @@
 #ifndef A_Steroids_datatypes_h
 #define A_Steroids_datatypes_h
 
+#define DegreesToRadiansFactor  0.017453292519943f			// PI / 180
+
 typedef struct _Point {
     float x;
     float y;
@@ -24,9 +26,28 @@ typedef struct _Rect {
     ASize size;
 } ARect;
 
+typedef struct _Color {
+    float r;
+    float g;
+    float b;
+    float a;
+} AColor;
+
+typedef struct _TexCoords {
+    float x;
+    float y;
+} ATexCoords;
+
 typedef struct _ImageInfo {
     ASize size;
-    const char *data;
+    GLubyte *data;
 } ImageInfo;
+
+
+typedef struct _Vertex {
+    float position[3];
+    AColor color;
+    ATexCoords TexCoord; // New
+} AVertex;
 
 #endif

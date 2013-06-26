@@ -7,24 +7,38 @@
 //
 
 #include "Utils.h"
+#include "FileUtils.h"
 
-int readFileToBuffer(const char *fileName, unsigned char *buffer)
+unsigned char * readFileToBuffer(const char *fileName)
 {
     unsigned long size = 0;
-    FILE *fd = fopen(fileName, "r");
+    unsigned char *buffer;
+    
+    fileName = FileUtils::getFullPath(fileName);
+    
+    FILE *fd = fopen(fileName, "rb");
     if (fd != NULL) {
         fseek(fd, 0, SEEK_END);
         size = ftell(fd);
         fseek(fd, 0, SEEK_SET);
 
-        buffer = new unsigned char[size];
+        buffer = new unsigned char[size + 1];
         fread(buffer, sizeof(unsigned char), size, fd);
         fclose(fd);
         
-        return 0;
+        buffer[size] = '\0';
+        
+        return buffer;
     }
     else {
-        printf("Error opening file: %s", fileName);
-        return -1;
+        printf("Error opening file: %s\n", fileName);
+        return NULL;
+    }
+}
+
+void setMatrixIdentity(float *mat, int n)
+{
+    for (int i = 0; i < n; i++) {
+        mat[i] = 1.0f;
     }
 }

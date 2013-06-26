@@ -1,20 +1,16 @@
-attribute vec4 a_position;
-attribute vec2 a_texCoord;
-attribute vec4 a_color;
+attribute vec4 position;
+attribute vec2 texCoordIn;
+attribute vec4 colorIn;
 
-uniform mat4 u_MVPMatrix;
+uniform mat4 modelView;
+uniform mat4 projection;
 
-#ifdef GL_ES
-varying lowp vec4 v_fragmentColor;
-varying mediump vec2 v_texCoord;
-#else
-varying vec4 v_fragmentColor;
-varying vec2 v_texCoord;
-#endif
+varying vec4 colorOut;
+varying vec2 texCoordOut;
 
 void main()
 {
-    gl_Position = u_MVPMatrix * a_position;
-    v_fragmentColor = a_color;
-    v_texCoord = a_texCoord;
+    gl_Position = projection * modelView * position;
+    colorOut = colorIn;
+    texCoordOut = texCoordIn;
 }

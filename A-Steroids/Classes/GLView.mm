@@ -7,6 +7,7 @@
 //
 
 #import "GLView.h"
+#include "ShadersCache.h"
 
 @implementation GLView
 
@@ -16,9 +17,12 @@
     if (self) {
         [self setupLayer];
         [self setupContext];
+        [self setupDepthBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self setupDisplayLink];
+        
+        sprite = new Sprite("item_powerup_fish.png");
     }
     return self;
 }
@@ -55,13 +59,19 @@
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_glLayer];
 }
 
+- (void)setupDepthBuffer {
+    glGenRenderbuffers(1, &_depthRenderBuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+}
+
 -(void)setupFrameBuffer
 {
     GLuint framebuffer;
     glGenFramebuffers(1, &framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                              GL_RENDERBUFFER, _colorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
 }
 
 -(void)setupDisplayLink {
@@ -71,8 +81,7 @@
 
 -(void)render:(CADisplayLink*)displayLink
 {
-    glClearColor(0.0f, 0, 0, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    sprite->render();
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 

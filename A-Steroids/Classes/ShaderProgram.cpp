@@ -14,49 +14,74 @@ using namespace std;
 ShaderProgram::ShaderProgram(const char *shaderName)
 {
     string vertexName = string(shaderName) + string(".vsh");
-    int vertexStatus = readFileToBuffer(vertexName.c_str(), _vertexBuffer);
+    _vertexBuffer = readFileToBuffer(vertexName.c_str());
     
     string fragmentName = string(shaderName) + string(".fsh");
-    int fragmentStatus = readFileToBuffer(fragmentName.c_str(), _fragmentBuffer);
+    _fragmentBuffer = readFileToBuffer(fragmentName.c_str());
     
-    if (fragmentStatus == 0 && vertexStatus == 0) {
-        _program = glCreateProgram();
+    if (_fragmentBuffer != NULL && _vertexBuffer != NULL) {
         
         _vertexShader = compileShader(GL_VERTEX_SHADER, (GLchar *)_vertexBuffer);
         _fragmentShader = compileShader(GL_FRAGMENT_SHADER, (GLchar *)_fragmentBuffer);
+        
+        _program = glCreateProgram();
         
         if (_vertexShader != -1 && _fragmentShader != -1) {
             glAttachShader(_program, _vertexShader);
             glAttachShader(_program, _fragmentShader);
         }
+        else {
+            printf("Error! While compiling shaders\n");
+        }
     }
     else {
-        printf("Error! Couldn't read shader files!");
+        printf("Error! Couldn't read shader files!\n");
     }
+}
+
+void ShaderProgram::use()
+{
+    glUseProgram(_program);
 }
 
 GLuint ShaderProgram::compileShader(GLenum type, const GLchar *source)
 {
-    GLint status;
+    string tmpStr = string((const char *)source);
+    const GLint len = tmpStr.length();
+    GLint status = -1;
     GLuint shader = glCreateShader(type);
-    glShaderSource(shader, 1, &source, NULL);
+    glShaderSource(shader, 1, &source, &len);
     glCompileShader(shader);
     
     glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-    
-    if (!status)
-        return -1;
+
+    if (status == GL_FALSE)
+    {
+        GLchar messages[256];
+        glGetShaderInfoLog(shader, sizeof(messages), 0, &messages[0]);
+        printf("Shader compiling %s", messages);
+        exit(1);
+    }
     else
         return shader;
+}
+
+GLuint ShaderProgram::getProgram()
+{
+    return _program;
 }
 
 void ShaderProgram::linkShader()
 {
     glLinkProgram(_program);
-}
-
-void ShaderProgram::addAttribute(const char *name, GLuint index)
-{
-    glBindAttribLocation(_program, index, (const GLchar *) name);
+    
+    GLint linkSuccess;
+    glGetProgramiv(_program, GL_LINK_STATUS, &linkSuccess);
+    if (linkSuccess == GL_FALSE) {
+        GLchar messages[256];
+        glGetProgramInfoLog(_program, sizeof(messages), 0, &messages[0]);
+        printf("Link shader %s", messages);
+        exit(1);
+    }
 }
 

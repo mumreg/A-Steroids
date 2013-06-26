@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#include <OpenGLES/ES2/gl.h>
-#include <OpenGLES/ES2/glext.h>
+#import <OpenGLES/ES2/gl.h>
+#import <OpenGLES/ES2/glext.h>
+
+#include "Sprite.h"
 
 @interface GLView : UIView
 {
     CAEAGLLayer *_glLayer;
     EAGLContext *_context;
     GLuint _colorRenderBuffer;
+    GLuint _depthRenderBuffer;
+    Sprite *sprite;
 }
 
 @end

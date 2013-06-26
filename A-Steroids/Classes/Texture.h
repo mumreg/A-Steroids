@@ -17,11 +17,16 @@
 
 class Texture {
 public:
-    Texture(const char *data, ARect &rect);
+    Texture(const char *data, int width, int height);
     Texture(Image *image);
     GLuint getName();
+    
+    const ASize getSize();
+    
 private:
+    void initWithData(const char *data, int width, int height);
     GLuint _name;
+    ASize _size;
 };
 
 #endif /* defined(__A_Steroids__Texture__) */
