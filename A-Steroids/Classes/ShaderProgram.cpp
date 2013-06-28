@@ -29,6 +29,7 @@ ShaderProgram::ShaderProgram(const char *shaderName)
         if (_vertexShader != -1 && _fragmentShader != -1) {
             glAttachShader(_program, _vertexShader);
             glAttachShader(_program, _fragmentShader);
+            linkShader();
         }
         else {
             printf("Error! While compiling shaders\n");

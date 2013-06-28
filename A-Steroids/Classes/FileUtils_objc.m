@@ -15,7 +15,7 @@
     NSString* fullpath = [[NSBundle mainBundle] pathForResource:fileName
                                                          ofType:nil];
     
-    NSLog(@"%@", fullpath);
+//    NSLog(@"%@", fullpath);
     
     if (fullpath != nil) {
         return [fullpath UTF8String];

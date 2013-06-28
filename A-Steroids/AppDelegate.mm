@@ -25,6 +25,7 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     

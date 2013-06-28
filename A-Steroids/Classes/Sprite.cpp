@@ -8,13 +8,10 @@
 
 #include "Sprite.h"
 #include <math.h>
+#include "Utils.h"
 
-const AVertex Vertices[] = {
-    {{0.5, -0.5, 0.01}, {1, 1, 1, 1}, {1, 1}},
-    {{0.5, 0.5, 0.01}, {1, 1, 1, 1}, {1, 0}},
-    {{-0.5, 0.5, 0.01}, {1, 1, 1, 1}, {0, 0}},
-    {{-0.5, -0.5, 0.01}, {1, 1, 1, 1}, {0, 1}},
-};
+#define Z_POS   0.00
+#define DEF_COLOR   1, 1, 1, 1
 
 const GLubyte Indices[] = {
     1, 0, 2, 3
@@ -26,24 +23,25 @@ Sprite::Sprite(const char *fileName)
     _texture = new Texture(image);
     delete image;
     
-    for (int i = 0; i < 4; i++) {
-        _vertices[i] = Vertices[i];
-    }
+    _winSize = getWinSize();
+    
+    setPosition({_winSize.width/2, _winSize.height/2});
     
     eval();
+    updatePosition();
+    
     setShaderProgram(kShaderTextureAndColor);
     getShaderProgram()->use();
     
     glGenBuffers(1, &_vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(_vertices), _vertices, GL_STATIC_DRAW);
     
     glGenBuffers(1, &_indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     
-    _matLocation = glGetUniformLocation(getShaderProgram()->getProgram(), kShaderMVUniform);
-    _projLocation = glGetUniformLocation(getShaderProgram()->getProgram(), kShaderProjectUniform);
+    _mvLocation = glGetUniformLocation(getShaderProgram()->getProgram(), kShaderMVUniform);
     
     _positionLocation = glGetAttribLocation(getShaderProgram()->getProgram(), kShaderPositionAttr);
     _colorLocation = glGetAttribLocation(getShaderProgram()->getProgram(), kShaderColorAttr);
@@ -53,7 +51,6 @@ Sprite::Sprite(const char *fileName)
     _texCoordsLocation = glGetAttribLocation(getShaderProgram()->getProgram(), kShaderTextureAttr);
     glEnableVertexAttribArray(_texCoordsLocation);
     _textureLocation = glGetUniformLocation(getShaderProgram()->getProgram(), kShaderTextureUniform);
-    
 }
 
 void Sprite::render()
@@ -63,18 +60,12 @@ void Sprite::render()
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
-    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+    glViewport(0, 0, _winSize.width, _winSize.height);
     
-    glUniformMatrix4fv(_projLocation, 1, 0, _projection);
-    glUniformMatrix4fv(_matLocation, 1, 0, _mv);
+    glUniformMatrix4fv(_mvLocation, 1, 0, _mv);
     
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
-    
-    ASize winSize = {1024, 768};
-    glViewport(0, 0, winSize.width, winSize.height);
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _texture->getName());
@@ -87,44 +78,54 @@ void Sprite::render()
     glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
+void Sprite::setPosition(const APoint &position)
+{
+    Node::setPosition(position);
+    updatePosition();
+}
+
+void Sprite::updatePosition()
+{
+    APoint position = getPosition();
+    
+    position.x -= _winSize.width;
+    position.y -= _winSize.height;
+    
+    float dx = 1.0f/_winSize.width;
+    float dy = 1.0f/_winSize.height;
+    
+    ASize textureSize = _texture->getSize();
+    
+    float x1 = (position.x + textureSize.width/2)*dx;
+    float y1 = (position.y - textureSize.height/2)*dy;
+    
+    float x2 = (position.x + textureSize.width/2)*dx;
+    float y2 = (position.y + textureSize.height/2)*dy;
+    
+    float x3 = (position.x - textureSize.width/2)*dx;
+    float y3 = (position.y + textureSize.height/2)*dy;
+    
+    float x4 = (position.x - textureSize.width/2)*dx;
+    float y4 = (position.y - textureSize.height/2)*dy;
+    
+    _vertices[0] = {{x1, y1, Z_POS}, {DEF_COLOR}, {1, 1}};
+    _vertices[1] = {{x2, y2, Z_POS}, {DEF_COLOR}, {1, 0}};
+    _vertices[2] = {{x3, y3, Z_POS}, {DEF_COLOR}, {0, 0}};
+    _vertices[3] = {{x4, y4, Z_POS}, {DEF_COLOR}, {0, 1}};
+}
+
 void Sprite::eval()
 {
-    float angle = getRotation();
-    
-    //_projection
-    float h = 4.0f * 768.0f / 1024.0f;
-    float left = -2;
-    float right = 2;
-    float bottom = -h/2;
-    float top = h/2;
-    float near = 4;
-    float far = 10;
-    
-    _projection[0]  = (2.0 * near) / (right - left);
-	_projection[1]  = 0.0;
-	_projection[2]  = 0.0;
-	_projection[3] = 0.0;
-	
-	_projection[4]  = 0.0;
-	_projection[5]  = (2.0 * near) / (top - bottom);
-	_projection[6]  = 0.0;
-	_projection[7] = 0.0;
-	
-	_projection[8]  = (right + left) / (right - left);
-	_projection[9]  = (top + bottom) / (top - bottom);
-	_projection[10] = -(far + near) / (far - near);
-	_projection[11] = -1.0;
-	
-	_projection[12]  = 0.0;
-	_projection[13]  = 0.0;
-	_projection[14] = -(2.0 * far * near) / (far - near);
-	_projection[15] = 0.0;
+    float angle = 45.0f*DegreesToRadiansFactor;
+    ASize texSize = _texture->getSize();
     
     //model view
-    float mv[16] = { cosf(angle), sinf(angle), 0, 0,
-        -sinf(angle), cosf(angle), 0, 0,
+    float mv[16] = {
+        cosf(angle), sinf(angle), 0, texSize.width/2,
+        -sinf(angle), cosf(angle), 0, texSize.height/2,
         0, 0, 1.0f, 0,
-        0, 0, 0, 1.0f};
+        0, 0, 0, 1.0f
+    };
     
     for (int i = 0; i < 16; i++) {
         _mv[i] = mv[i];

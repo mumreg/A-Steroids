@@ -81,6 +81,9 @@
 
 -(void)render:(CADisplayLink*)displayLink
 {
+    glClearColor(0, 0, 0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glEnable(GL_DEPTH_TEST);
     sprite->render();
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
