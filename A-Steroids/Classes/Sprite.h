@@ -22,8 +22,6 @@ public:
     virtual void setPosition(const APoint &position);
     virtual void setRotation(const float rotation);
     
-    virtual void touchesBegan(ASet *set);
-    
 private:
     void eval();
     void updatePosition();

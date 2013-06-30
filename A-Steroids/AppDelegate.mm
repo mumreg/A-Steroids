@@ -30,6 +30,7 @@
     [self.window makeKeyAndVisible];
     
     self.glView = [[[GLView alloc] initWithFrame:screenBounds] autorelease];
+    [self.glView setContentScaleFactor:[[UIScreen mainScreen] scale]];
     [self.window addSubview:_glView];
     
     return YES;

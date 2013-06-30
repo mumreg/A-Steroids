@@ -21,20 +21,17 @@ public:
     void addObject(Node *object);
     void removeObject(Node *object);
     
-//    -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-//    -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-//    -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-    
     void touchesBegan(int num, int *ids, float *xs, float *ys);
     void touchesMoved(int num, int *ids, float *xs, float *ys);
     void touchesEnded(int num, int *ids, float *xs, float *ys);
     
 private:
-    TouchDispatcher() {}
+    TouchDispatcher();
     TouchDispatcher(TouchDispatcher&) {}
     TouchDispatcher& operator=(TouchDispatcher&);
     
     std::vector<Node *> _objects;
+    ARect _screenRect;
 };
 
 #endif /* defined(__A_Steroids__TouchDispatcher__) */

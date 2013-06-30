@@ -145,14 +145,6 @@ void Sprite::eval()
     _modelView = translate * rotate;
 }
 
-void Sprite::touchesBegan(ASet *set)
-{
-    for (int i = 0; i < set->getSize(); i++) {
-        APoint *point = set->getObjectAtIndex(i);
-        printf("%f %f\n", point->x, point->y);
-    }
-}
-
 Sprite::~Sprite()
 {
     

@@ -9,6 +9,7 @@
 #include "TouchDispatcher.h"
 #include "datatypes.h"
 #include "ASet.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -20,6 +21,12 @@ TouchDispatcher* TouchDispatcher::sharedInstance()
     }
     
     return pDispatcher;
+}
+
+TouchDispatcher::TouchDispatcher()
+{
+    ASize winSize = getWinSize();
+    _screenRect = ARect({0, winSize.height, winSize.width, winSize.height});
 }
 
 void TouchDispatcher::addObject(Node *object)
@@ -53,8 +60,8 @@ void TouchDispatcher::touchesBegan(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = xs[i];
-        point->y = ys[i];
+        point->x = _screenRect.origin.x - xs[i];
+        point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);
     }
@@ -75,8 +82,8 @@ void TouchDispatcher::touchesMoved(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = xs[i];
-        point->y = ys[i];
+        point->x = _screenRect.origin.x - xs[i];
+        point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);
     }
@@ -97,8 +104,8 @@ void TouchDispatcher::touchesEnded(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = xs[i];
-        point->y = ys[i];
+        point->x = _screenRect.origin.x - xs[i];
+        point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);
     }
