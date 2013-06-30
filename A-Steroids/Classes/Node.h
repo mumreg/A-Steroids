@@ -21,8 +21,10 @@ public:
     Node();
     virtual ~Node();
     virtual void render();
+    virtual void update() {}
 
     virtual void setVisible(bool flag);
+    virtual bool isVisible();
     
     virtual void setPosition(const APoint &position);
     virtual const APoint& getPosition();
@@ -36,15 +38,14 @@ public:
     void setTouchEnabled(bool touchEnabled);
     bool isTouchEnabled();
     
-    virtual void touchesBegan(ASet *set);
-    virtual void touchesMoved(ASet *set);
-    virtual void touchesEnded(ASet *set);
+    virtual void touchesBegan(ASet *set) {}
+    virtual void touchesMoved(ASet *set) {}
+    virtual void touchesEnded(ASet *set) {}
     
     virtual void addToTouchDispatcher();
     
 private:
     ShaderProgram *_shaderProgram;
-    std::vector<Node *> children;
     
     bool _isVisble;
     APoint _position;

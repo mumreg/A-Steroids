@@ -11,7 +11,7 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-#include "Sprite.h"
+#include "StartScene.h"
 
 @interface GLView : UIView
 {
@@ -20,7 +20,7 @@
     GLuint _colorRenderBuffer;
     GLuint _depthRenderBuffer;
     
-    Sprite *sprite;
+    StartScene *scene;
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;

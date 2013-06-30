@@ -15,6 +15,12 @@
 class Layer : public Node {
 public:
     Layer();
+    
+    void addChild(Node *object);
+    virtual void render();
+    virtual void update();
+private:
+    std::vector<Node *> _childs;
 };
 
 #endif /* defined(__A_Steroids__Layer__) */

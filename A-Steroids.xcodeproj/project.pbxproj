@@ -12,6 +12,7 @@
 		ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */; };
 		ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */; };
 		ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */; };
+		ED2D2F051780B86700B5BAF4 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2F031780B86700B5BAF4 /* StartScene.cpp */; };
 		ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3615F81779B23F009D852F /* FileUtils.cpp */; };
 		ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3615FD1779B25D009D852F /* FileUtils_objc.m */; };
 		ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F017422D02003C01DB /* UIKit.framework */; };
@@ -51,6 +52,9 @@
 		ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchDispatcher.h; path = "A-Steroids/Classes/TouchDispatcher.h"; sourceTree = "<group>"; };
 		ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ASet.cpp; path = "A-Steroids/Classes/ASet.cpp"; sourceTree = "<group>"; };
 		ED2D2F0017809B8C00B5BAF4 /* ASet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASet.h; path = "A-Steroids/Classes/ASet.h"; sourceTree = "<group>"; };
+		ED2D2F031780B86700B5BAF4 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = "A-Steroids/Classes/StartScene.cpp"; sourceTree = "<group>"; };
+		ED2D2F041780B86700B5BAF4 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = "A-Steroids/Classes/StartScene.h"; sourceTree = "<group>"; };
+		ED2D2F061780B91900B5BAF4 /* BaseEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BaseEngine.h; path = "A-Steroids/Classes/BaseEngine.h"; sourceTree = "<group>"; };
 		ED3615F81779B23F009D852F /* FileUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FileUtils.cpp; path = "A-Steroids/Classes/FileUtils.cpp"; sourceTree = "<group>"; };
 		ED3615F91779B23F009D852F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = "A-Steroids/Classes/FileUtils.h"; sourceTree = "<group>"; };
 		ED3615FC1779B25D009D852F /* FileUtils_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils_objc.h; path = "A-Steroids/Classes/FileUtils_objc.h"; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 				ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */,
 			);
 			name = "Touch Handling";
+			sourceTree = "<group>";
+		};
+		ED2D2F021780B85500B5BAF4 /* StartScene */ = {
+			isa = PBXGroup;
+			children = (
+				ED2D2F031780B86700B5BAF4 /* StartScene.cpp */,
+				ED2D2F041780B86700B5BAF4 /* StartScene.h */,
+			);
+			name = StartScene;
 			sourceTree = "<group>";
 		};
 		ED3615F71779B21E009D852F /* File Utils */ = {
@@ -231,6 +244,7 @@
 		EDBC7002176F15580049BD82 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				ED2D2F021780B85500B5BAF4 /* StartScene */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -251,6 +265,7 @@
 				ED8031D81771E6330025BD9E /* Texture.h */,
 				ED96D0E5177ED7EE009E5364 /* matrx4.cpp */,
 				ED96D0E6177ED7EE009E5364 /* matrx4.h */,
+				ED2D2F061780B91900B5BAF4 /* BaseEngine.h */,
 			);
 			name = "Base Engine";
 			sourceTree = "<group>";
@@ -376,6 +391,7 @@
 				ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */,
 				ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */,
 				ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */,
+				ED2D2F051780B86700B5BAF4 /* StartScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

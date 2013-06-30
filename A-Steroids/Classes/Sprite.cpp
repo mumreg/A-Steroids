@@ -54,7 +54,8 @@ Sprite::Sprite(const char *fileName)
 
 void Sprite::render()
 {
-    Node::render();
+    if (!isVisible())
+        return;
     
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);

@@ -25,16 +25,16 @@ void Node::render()
     if (!_isVisble) {
         return;
     }
-    
-    vector<Node *>::iterator it = children.begin();
-    for (; it != children.end(); ++it) {
-        (*it)->render();
-    }
 }
 
 void Node::setVisible(bool flag)
 {
     _isVisble = flag;
+}
+
+bool Node::isVisible()
+{
+    return _isVisble;
 }
 
 void Node::setPosition(const APoint &position)
@@ -65,19 +65,6 @@ void Node::setTouchEnabled(bool touchEnabled)
 bool Node::isTouchEnabled()
 {
     return _touchEnabled;
-}
-
-void Node::touchesBegan(ASet *set)
-{
-    //override me
-}
-void Node::touchesMoved(ASet *set)
-{
-    //override me
-}
-void Node::touchesEnded(ASet *set)
-{
-    //override me
 }
 
 void Node::addToTouchDispatcher()

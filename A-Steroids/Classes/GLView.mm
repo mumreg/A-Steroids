@@ -25,9 +25,7 @@
         [self setupFrameBuffer];
         [self setupDisplayLink];
         
-        sprite = new Sprite("item_powerup_fish.png");
-        sprite->setTouchEnabled(true);
-        sprite->addToTouchDispatcher();
+        scene = new StartScene();
     }
     return self;
 }
@@ -89,7 +87,10 @@
     glClearColor(0, 0, 0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
-    sprite->render();
+    
+    scene->render();
+    scene->update();
+    
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
