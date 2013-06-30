@@ -20,6 +20,10 @@ public:
     
     virtual void render();
     virtual void setPosition(const APoint &position);
+    virtual void setRotation(const float rotation);
+    
+    virtual void touchesBegan(ASet *set);
+    
 private:
     void eval();
     void updatePosition();
@@ -36,7 +40,7 @@ private:
     GLuint _indexBuffer;
     
     AVertex _vertices[4];
-    float _mv[16];
+    matrix4 _modelView;
 //    float _projection[16];
     
     ASize _winSize;

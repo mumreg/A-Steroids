@@ -9,6 +9,9 @@
 #import "GLView.h"
 #include "ShadersCache.h"
 
+#include "datatypes.h"
+#include "TouchDispatcher.h"
+
 @implementation GLView
 
 - (id)initWithFrame:(CGRect)frame
@@ -23,6 +26,8 @@
         [self setupDisplayLink];
         
         sprite = new Sprite("item_powerup_fish.png");
+        sprite->setTouchEnabled(true);
+        sprite->addToTouchDispatcher();
     }
     return self;
 }
@@ -86,6 +91,66 @@
     glEnable(GL_DEPTH_TEST);
     sprite->render();
     [_context presentRenderbuffer:GL_RENDERBUFFER];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    int ids[MAX_TOUCHES];
+    float xs[MAX_TOUCHES];
+    float ys[MAX_TOUCHES];
+    
+    int i = 0;
+    
+    for (UITouch *touch in touches) {
+        CGPoint p = [touch locationInView:self];
+        ids[i] = (int)touch;
+        xs[i] = p.x * self.contentScaleFactor;
+        ys[i] = p.y * self.contentScaleFactor;
+        
+        i++;
+    }
+
+    TouchDispatcher::sharedInstance()->touchesBegan(i, ids, xs, ys);
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    int ids[MAX_TOUCHES];
+    float xs[MAX_TOUCHES];
+    float ys[MAX_TOUCHES];
+    
+    int i = 0;
+    
+    for (UITouch *touch in touches) {
+        CGPoint p = [touch locationInView:self];
+        ids[i] = (int)touch;
+        xs[i] = p.x * self.contentScaleFactor;
+        ys[i] = p.y * self.contentScaleFactor;
+        
+        i++;
+    }
+    
+    TouchDispatcher::sharedInstance()->touchesMoved(i, ids, xs, ys);
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+{
+    int ids[MAX_TOUCHES];
+    float xs[MAX_TOUCHES];
+    float ys[MAX_TOUCHES];
+    
+    int i = 0;
+    
+    for (UITouch *touch in touches) {
+        CGPoint p = [touch locationInView:self];
+        ids[i] = (int)touch;
+        xs[i] = p.x * self.contentScaleFactor;
+        ys[i] = p.y * self.contentScaleFactor;
+        
+        i++;
+    }
+    
+    TouchDispatcher::sharedInstance()->touchesEnded(i, ids, xs, ys);
 }
 
 -(void)dealloc

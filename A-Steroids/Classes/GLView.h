@@ -19,7 +19,12 @@
     EAGLContext *_context;
     GLuint _colorRenderBuffer;
     GLuint _depthRenderBuffer;
+    
     Sprite *sprite;
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 
 @end

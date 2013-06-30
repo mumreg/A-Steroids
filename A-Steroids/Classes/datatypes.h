@@ -9,7 +9,10 @@
 #ifndef A_Steroids_datatypes_h
 #define A_Steroids_datatypes_h
 
+#include <OpenGLES/ES2/gl.h>
+
 #define DegreesToRadiansFactor  0.017453292519943f			// PI / 180
+#define MAX_TOUCHES             10
 
 typedef struct _Point {
     float x;
@@ -42,7 +45,6 @@ typedef struct _ImageInfo {
     ASize size;
     GLubyte *data;
 } ImageInfo;
-
 
 typedef struct _Vertex {
     float position[3];

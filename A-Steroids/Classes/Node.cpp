@@ -8,6 +8,7 @@
 
 #include "Node.h"
 #include "Utils.h"
+#include "TouchDispatcher.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ Node::Node()
     _angle = 0.0f;
     _position = {0, 0};
     _isVisble = true;
+    _touchEnabled = false;
 }
 
 void Node::render()
@@ -53,6 +55,34 @@ void Node::setRotation(const float angle)
 const float Node::getRotation()
 {
     return _angle;
+}
+
+void Node::setTouchEnabled(bool touchEnabled)
+{
+    _touchEnabled = touchEnabled;
+}
+
+bool Node::isTouchEnabled()
+{
+    return _touchEnabled;
+}
+
+void Node::touchesBegan(ASet *set)
+{
+    //override me
+}
+void Node::touchesMoved(ASet *set)
+{
+    //override me
+}
+void Node::touchesEnded(ASet *set)
+{
+    //override me
+}
+
+void Node::addToTouchDispatcher()
+{
+    TouchDispatcher::sharedInstance()->addObject(this);
 }
 
 void Node::setShaderProgram(const char *programName)

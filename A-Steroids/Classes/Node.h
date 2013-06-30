@@ -13,8 +13,10 @@
 #include <vector>
 #include "ShadersCache.h"
 #include "datatypes.h"
+#include "TouchProtocol.h"
+#include "matrx4.h"
 
-class Node {
+class Node : public TouchProtocol {
 public:
     Node();
     virtual ~Node();
@@ -31,6 +33,15 @@ public:
     void setShaderProgram(const char *programName);
     ShaderProgram *getShaderProgram();
     
+    void setTouchEnabled(bool touchEnabled);
+    bool isTouchEnabled();
+    
+    virtual void touchesBegan(ASet *set);
+    virtual void touchesMoved(ASet *set);
+    virtual void touchesEnded(ASet *set);
+    
+    virtual void addToTouchDispatcher();
+    
 private:
     ShaderProgram *_shaderProgram;
     std::vector<Node *> children;
@@ -38,6 +49,7 @@ private:
     bool _isVisble;
     APoint _position;
     float _angle;
+    bool _touchEnabled;
 };
 
 #endif /* defined(__A_Steroids__Node__) */

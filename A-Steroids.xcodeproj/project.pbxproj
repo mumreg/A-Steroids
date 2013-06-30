@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
 		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
+		ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */; };
+		ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */; };
+		ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */; };
 		ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3615F81779B23F009D852F /* FileUtils.cpp */; };
 		ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3615FD1779B25D009D852F /* FileUtils_objc.m */; };
 		ED5EC8F117422D02003C01DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5EC8F017422D02003C01DB /* UIKit.framework */; };
@@ -27,6 +30,7 @@
 		ED91D9ED1770862E00D12521 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EB1770862E00D12521 /* Layer.cpp */; };
 		ED91D9F11770898900D12521 /* Image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9EF1770898900D12521 /* Image.cpp */; };
 		ED91D9F6177089DB00D12521 /* Image_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = ED91D9F5177089DB00D12521 /* Image_objc.m */; };
+		ED96D0E7177ED7EE009E5364 /* matrx4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED96D0E5177ED7EE009E5364 /* matrx4.cpp */; };
 		EDB0A008177301D300E2365E /* ShadersCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDB0A006177301D300E2365E /* ShadersCache.cpp */; };
 		EDB7C79D177B4D7B00415231 /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB7C79C177B4D7A00415231 /* item_powerup_fish.png */; };
 		EDBC7006176F15AD0049BD82 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDBC7004176F15AD0049BD82 /* Node.cpp */; };
@@ -41,6 +45,12 @@
 		ED2C9A581753D12F00D0C2F8 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = Classes/GameConfig.h; sourceTree = "<group>"; };
 		ED2C9A591753D5F900D0C2F8 /* Utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Utils.cpp; path = Classes/Utils.cpp; sourceTree = "<group>"; };
 		ED2C9A5A1753D5F900D0C2F8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Classes/Utils.h; sourceTree = "<group>"; };
+		ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchProtocol.cpp; path = "A-Steroids/Classes/TouchProtocol.cpp"; sourceTree = "<group>"; };
+		ED2D2EF917807C7F00B5BAF4 /* TouchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchProtocol.h; path = "A-Steroids/Classes/TouchProtocol.h"; sourceTree = "<group>"; };
+		ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchDispatcher.cpp; path = "A-Steroids/Classes/TouchDispatcher.cpp"; sourceTree = "<group>"; };
+		ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchDispatcher.h; path = "A-Steroids/Classes/TouchDispatcher.h"; sourceTree = "<group>"; };
+		ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ASet.cpp; path = "A-Steroids/Classes/ASet.cpp"; sourceTree = "<group>"; };
+		ED2D2F0017809B8C00B5BAF4 /* ASet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASet.h; path = "A-Steroids/Classes/ASet.h"; sourceTree = "<group>"; };
 		ED3615F81779B23F009D852F /* FileUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FileUtils.cpp; path = "A-Steroids/Classes/FileUtils.cpp"; sourceTree = "<group>"; };
 		ED3615F91779B23F009D852F /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils.h; path = "A-Steroids/Classes/FileUtils.h"; sourceTree = "<group>"; };
 		ED3615FC1779B25D009D852F /* FileUtils_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtils_objc.h; path = "A-Steroids/Classes/FileUtils_objc.h"; sourceTree = "<group>"; };
@@ -69,6 +79,8 @@
 		ED91D9F01770898900D12521 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image.h; path = "A-Steroids/Classes/Image.h"; sourceTree = "<group>"; };
 		ED91D9F4177089DB00D12521 /* Image_objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Image_objc.h; path = "A-Steroids/Classes/Image_objc.h"; sourceTree = "<group>"; };
 		ED91D9F5177089DB00D12521 /* Image_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Image_objc.m; path = "A-Steroids/Classes/Image_objc.m"; sourceTree = "<group>"; };
+		ED96D0E5177ED7EE009E5364 /* matrx4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = matrx4.cpp; path = "A-Steroids/Classes/matrx4.cpp"; sourceTree = "<group>"; };
+		ED96D0E6177ED7EE009E5364 /* matrx4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = matrx4.h; path = "A-Steroids/Classes/matrx4.h"; sourceTree = "<group>"; };
 		EDB0A006177301D300E2365E /* ShadersCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShadersCache.cpp; path = Classes/ShadersCache.cpp; sourceTree = "<group>"; };
 		EDB0A007177301D300E2365E /* ShadersCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShadersCache.h; path = Classes/ShadersCache.h; sourceTree = "<group>"; };
 		EDB7C79C177B4D7A00415231 /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = item_powerup_fish.png; path = "A-Steroids/item_powerup_fish.png"; sourceTree = "<group>"; };
@@ -98,6 +110,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED2D2EFE17808B4700B5BAF4 /* Touch Handling */ = {
+			isa = PBXGroup;
+			children = (
+				ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */,
+				ED2D2F0017809B8C00B5BAF4 /* ASet.h */,
+				ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */,
+				ED2D2EF917807C7F00B5BAF4 /* TouchProtocol.h */,
+				ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */,
+				ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */,
+			);
+			name = "Touch Handling";
+			sourceTree = "<group>";
+		};
 		ED3615F71779B21E009D852F /* File Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +238,7 @@
 		EDBC7003176F15630049BD82 /* Base Engine */ = {
 			isa = PBXGroup;
 			children = (
+				ED2D2EFE17808B4700B5BAF4 /* Touch Handling */,
 				ED91D9F21770899000D12521 /* Image */,
 				EDBC7004176F15AD0049BD82 /* Node.cpp */,
 				EDBC7005176F15AD0049BD82 /* Node.h */,
@@ -223,6 +249,8 @@
 				ED91D9EE1770869F00D12521 /* datatypes.h */,
 				ED8031D71771E6330025BD9E /* Texture.cpp */,
 				ED8031D81771E6330025BD9E /* Texture.h */,
+				ED96D0E5177ED7EE009E5364 /* matrx4.cpp */,
+				ED96D0E6177ED7EE009E5364 /* matrx4.h */,
 			);
 			name = "Base Engine";
 			sourceTree = "<group>";
@@ -344,6 +372,10 @@
 				EDB0A008177301D300E2365E /* ShadersCache.cpp in Sources */,
 				ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */,
 				ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */,
+				ED96D0E7177ED7EE009E5364 /* matrx4.cpp in Sources */,
+				ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */,
+				ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */,
+				ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

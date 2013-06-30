@@ -10,7 +10,7 @@
 #include <math.h>
 #include "Utils.h"
 
-#define Z_POS   0.00
+#define Z_POS       0.00
 #define DEF_COLOR   1, 1, 1, 1
 
 const GLubyte Indices[] = {
@@ -25,10 +25,9 @@ Sprite::Sprite(const char *fileName)
     
     _winSize = getWinSize();
     
-    setPosition({_winSize.width/2, _winSize.height/2});
-    
-    eval();
+    setPosition({0, 0});
     updatePosition();
+    eval();
     
     setShaderProgram(kShaderTextureAndColor);
     getShaderProgram()->use();
@@ -62,7 +61,7 @@ void Sprite::render()
     
     glViewport(0, 0, _winSize.width, _winSize.height);
     
-    glUniformMatrix4fv(_mvLocation, 1, 0, _mv);
+    glUniformMatrix4fv(_mvLocation, 1, 0, _modelView.glMatrix());
     
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
@@ -81,15 +80,18 @@ void Sprite::render()
 void Sprite::setPosition(const APoint &position)
 {
     Node::setPosition(position);
-    updatePosition();
+    eval();
+}
+
+void Sprite::setRotation(const float rotation)
+{
+    Node::setRotation(rotation);
+    eval();
 }
 
 void Sprite::updatePosition()
 {
-    APoint position = getPosition();
-    
-    position.x -= _winSize.width;
-    position.y -= _winSize.height;
+    APoint position = {0, 0};
     
     float dx = 1.0f/_winSize.width;
     float dy = 1.0f/_winSize.height;
@@ -116,19 +118,38 @@ void Sprite::updatePosition()
 
 void Sprite::eval()
 {
-    float angle = 45.0f*DegreesToRadiansFactor;
-    ASize texSize = _texture->getSize();
+    APoint position = getPosition();
     
-    //model view
-    float mv[16] = {
-        cosf(angle), sinf(angle), 0, texSize.width/2,
-        -sinf(angle), cosf(angle), 0, texSize.height/2,
-        0, 0, 1.0f, 0,
-        0, 0, 0, 1.0f
-    };
+    float dx = 1.0f/_winSize.width;
+    float dy = 1.0f/_winSize.height;
     
-    for (int i = 0; i < 16; i++) {
-        _mv[i] = mv[i];
+    matrix4 translate;
+    translate.setIdentity();
+    
+    float *translateArr = translate.glMatrix();
+    translateArr[12] = -1.0f + position.x*dx;
+    translateArr[13] = -1.0f + position.y*dy;
+    translateArr[14] = 0.0f;
+    
+    float angle = getRotation()*DegreesToRadiansFactor;
+
+    matrix4 rotate;
+    rotate.setIdentity();
+    
+    float *rotateArr = rotate.glMatrix();
+    rotateArr[0] = cosf(angle);
+    rotateArr[1] = sinf(angle);
+    rotateArr[4] = -sinf(angle);
+    rotateArr[5] = cosf(angle);
+    
+    _modelView = translate * rotate;
+}
+
+void Sprite::touchesBegan(ASet *set)
+{
+    for (int i = 0; i < set->getSize(); i++) {
+        APoint *point = set->getObjectAtIndex(i);
+        printf("%f %f\n", point->x, point->y);
     }
 }
 
