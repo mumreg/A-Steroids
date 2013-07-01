@@ -60,7 +60,7 @@ void TouchDispatcher::touchesBegan(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = _screenRect.origin.x - xs[i];
+        point->x = xs[i];
         point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);
@@ -82,7 +82,7 @@ void TouchDispatcher::touchesMoved(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = _screenRect.origin.x - xs[i];
+        point->x = xs[i];
         point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);
@@ -104,7 +104,7 @@ void TouchDispatcher::touchesEnded(int num, int *ids, float *xs, float *ys)
     
     for (int i = 0; i < num; i++) {
         APoint *point = new APoint;
-        point->x = _screenRect.origin.x - xs[i];
+        point->x = xs[i];
         point->y = _screenRect.origin.y - ys[i];
         
         set.addObject(point);

@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
 //
 
+#include <OpenGLES/ES2/gl.h>
+
 #include "Utils.h"
 #include "FileUtils.h"
-#include <OpenGLES/ES2/gl.h>
 #import "AppDelegate.h"
 
 unsigned char * readFileToBuffer(const char *fileName)
@@ -55,11 +56,21 @@ void glCheckError()
 
 ASize getWinSize()
 {
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     float scale = [[UIScreen mainScreen] scale];
     
-    return {screenWidth*scale, screenHeight*scale};
+    CGRect myBounds = CGRectMake(screenBounds.origin.x, screenBounds.origin.y,
+                                 screenBounds.size.height*scale, screenBounds.size.width*scale);
+    
+    return {myBounds.size.width, myBounds.size.height};
+}
+
+bool rectContainsPoint(ARect *rect, APoint *point)
+{
+    if ((point->x < rect->origin.x + rect->size.width && point->x > rect->origin.x) &&
+        (point->y < rect->origin.y + rect->size.height && point->y > rect->origin.y)) {
+        return true;
+    }
+    
+    return false;
 }

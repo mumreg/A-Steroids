@@ -20,7 +20,10 @@ public:
     
     virtual void render();
     virtual void setPosition(const APoint &position);
+    virtual void setPosition(float x, float y);
     virtual void setRotation(const float rotation);
+    
+    ARect boundingBox();
     
 private:
     void eval();

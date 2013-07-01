@@ -11,13 +11,19 @@
 
 #include <iostream>
 #include "BaseEngine.h"
+#include "GameScene.h"
 
 class StartScene : public Layer {
 public:
     StartScene();
+    
+    virtual void touchesBegan(ASet *set);
+    virtual void touchesEnded(ASet *set);
+    
 private:
     Sprite *startButton;
     ASize winSize;
+    bool startTouched;
 };
 
 #endif /* defined(__A_Steroids__StartScene__) */

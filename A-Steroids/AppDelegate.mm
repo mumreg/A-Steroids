@@ -10,28 +10,32 @@
 
 @implementation AppDelegate
 
-@synthesize glView=_glView;
+@synthesize glViewController=_glViewController;
 
 - (void)dealloc
 {
-    [_glView release];
+    [_glViewController release];
     [_window release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
     self.window.backgroundColor = [UIColor blackColor];
+    
+    _glViewController = [[GLViewController alloc] init];
+    [self.window setRootViewController:_glViewController];
+    [_glViewController release];
+    
     [self.window makeKeyAndVisible];
     
-    self.glView = [[[GLView alloc] initWithFrame:screenBounds] autorelease];
-    [self.glView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-    [self.window addSubview:_glView];
+//    self.glView = [[[GLView alloc] initWithFrame:screenBounds] autorelease];
+//    [self.glView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+//    [self.window addSubview:_glView];
     
     return YES;
 }

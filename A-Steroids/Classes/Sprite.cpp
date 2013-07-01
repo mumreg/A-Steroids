@@ -25,7 +25,6 @@ Sprite::Sprite(const char *fileName)
     
     _winSize = getWinSize();
     
-    setPosition({0, 0});
     updatePosition();
     eval();
     
@@ -78,10 +77,23 @@ void Sprite::render()
     glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
+ARect Sprite::boundingBox()
+{
+    APoint position = getPosition();
+    ASize texSize = _texture->getSize();
+    
+    return {position.x - texSize.width/2, position.y - texSize.height/2, texSize.width, texSize.height};
+}
+
 void Sprite::setPosition(const APoint &position)
 {
     Node::setPosition(position);
     eval();
+}
+
+void Sprite::setPosition(float x, float y)
+{
+    setPosition({x, y});
 }
 
 void Sprite::setRotation(const float rotation)
@@ -128,8 +140,8 @@ void Sprite::eval()
     translate.setIdentity();
     
     float *translateArr = translate.glMatrix();
-    translateArr[12] = -1.0f + position.x*dx;
-    translateArr[13] = -1.0f + position.y*dy;
+    translateArr[12] = -1.0f/2 + position.x*dx;
+    translateArr[13] = -1.0f/2 + position.y*dy;
     translateArr[14] = 0.0f;
     
     float angle = getRotation()*DegreesToRadiansFactor;
