@@ -14,6 +14,13 @@
 		ED2C95901781B4A400D6A31D /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C958E1781B4A400D6A31D /* Stone.cpp */; };
 		ED2C95931781B4B600D6A31D /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95911781B4B600D6A31D /* Bullet.cpp */; };
 		ED2C95971781B4D900D6A31D /* Joystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95951781B4D900D6A31D /* Joystick.cpp */; };
+		ED2C95A01782C30700D6A31D /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959B1782C30700D6A31D /* bullet.png */; };
+		ED2C95A11782C30700D6A31D /* fire_button.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959C1782C30700D6A31D /* fire_button.png */; };
+		ED2C95A21782C30700D6A31D /* moving_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959D1782C30700D6A31D /* moving_circle.png */; };
+		ED2C95A31782C30700D6A31D /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959E1782C30700D6A31D /* ship.png */; };
+		ED2C95A41782C30700D6A31D /* static_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959F1782C30700D6A31D /* static_circle.png */; };
+		ED2C95AB1782FAFB00D6A31D /* Body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95A91782FAFB00D6A31D /* Body.cpp */; };
+		ED2C95AE1782FB1100D6A31D /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95AC1782FB1000D6A31D /* World.cpp */; };
 		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
 		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
 		ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */; };
@@ -60,6 +67,15 @@
 		ED2C95921781B4B600D6A31D /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = "A-Steroids/Classes/Bullet.h"; sourceTree = "<group>"; };
 		ED2C95951781B4D900D6A31D /* Joystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joystick.cpp; path = "A-Steroids/Classes/Joystick.cpp"; sourceTree = "<group>"; };
 		ED2C95961781B4D900D6A31D /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Joystick.h; path = "A-Steroids/Classes/Joystick.h"; sourceTree = "<group>"; };
+		ED2C959B1782C30700D6A31D /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bullet.png; path = Resources/bullet.png; sourceTree = "<group>"; };
+		ED2C959C1782C30700D6A31D /* fire_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fire_button.png; path = Resources/fire_button.png; sourceTree = "<group>"; };
+		ED2C959D1782C30700D6A31D /* moving_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = moving_circle.png; path = Resources/moving_circle.png; sourceTree = "<group>"; };
+		ED2C959E1782C30700D6A31D /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ship.png; path = Resources/ship.png; sourceTree = "<group>"; };
+		ED2C959F1782C30700D6A31D /* static_circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = static_circle.png; path = Resources/static_circle.png; sourceTree = "<group>"; };
+		ED2C95A91782FAFB00D6A31D /* Body.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Body.cpp; path = "A-Steroids/Classes/Body.cpp"; sourceTree = "<group>"; };
+		ED2C95AA1782FAFB00D6A31D /* Body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Body.h; path = "A-Steroids/Classes/Body.h"; sourceTree = "<group>"; };
+		ED2C95AC1782FB1000D6A31D /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = "A-Steroids/Classes/World.cpp"; sourceTree = "<group>"; };
+		ED2C95AD1782FB1000D6A31D /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = World.h; path = "A-Steroids/Classes/World.h"; sourceTree = "<group>"; };
 		ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = Classes/ShaderProgram.cpp; sourceTree = "<group>"; };
 		ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = Classes/ShaderProgram.h; sourceTree = "<group>"; };
 		ED2C9A581753D12F00D0C2F8 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = Classes/GameConfig.h; sourceTree = "<group>"; };
@@ -174,6 +190,17 @@
 				ED2C95961781B4D900D6A31D /* Joystick.h */,
 			);
 			name = Controls;
+			sourceTree = "<group>";
+		};
+		ED2C95A51782FAD700D6A31D /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				ED2C95A91782FAFB00D6A31D /* Body.cpp */,
+				ED2C95AA1782FAFB00D6A31D /* Body.h */,
+				ED2C95AC1782FB1000D6A31D /* World.cpp */,
+				ED2C95AD1782FB1000D6A31D /* World.h */,
+			);
+			name = Physics;
 			sourceTree = "<group>";
 		};
 		ED2D2EFE17808B4700B5BAF4 /* Touch Handling */ = {
@@ -335,6 +362,7 @@
 		EDD7EB0E174A7A9A0006D727 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C95A51782FAD700D6A31D /* Physics */,
 				ED3615F71779B21E009D852F /* File Utils */,
 				EDFD63D3174A82D700BA899A /* Shaders */,
 				EDBC7003176F15630049BD82 /* Base Engine */,
@@ -349,6 +377,11 @@
 		EDF1E1151779B01B00D99CB2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C959B1782C30700D6A31D /* bullet.png */,
+				ED2C959C1782C30700D6A31D /* fire_button.png */,
+				ED2C959D1782C30700D6A31D /* moving_circle.png */,
+				ED2C959E1782C30700D6A31D /* ship.png */,
+				ED2C959F1782C30700D6A31D /* static_circle.png */,
 				ED2C957E1781791D00D6A31D /* start_label.png */,
 			);
 			name = Resources;
@@ -425,6 +458,11 @@
 				ED5EC90517422D03003C01DB /* Default@2x.png in Resources */,
 				ED5EC90717422D03003C01DB /* Default-568h@2x.png in Resources */,
 				ED2C957F1781791D00D6A31D /* start_label.png in Resources */,
+				ED2C95A01782C30700D6A31D /* bullet.png in Resources */,
+				ED2C95A11782C30700D6A31D /* fire_button.png in Resources */,
+				ED2C95A21782C30700D6A31D /* moving_circle.png in Resources */,
+				ED2C95A31782C30700D6A31D /* ship.png in Resources */,
+				ED2C95A41782C30700D6A31D /* static_circle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +498,8 @@
 				ED2C95901781B4A400D6A31D /* Stone.cpp in Sources */,
 				ED2C95931781B4B600D6A31D /* Bullet.cpp in Sources */,
 				ED2C95971781B4D900D6A31D /* Joystick.cpp in Sources */,
+				ED2C95AB1782FAFB00D6A31D /* Body.cpp in Sources */,
+				ED2C95AE1782FB1100D6A31D /* World.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

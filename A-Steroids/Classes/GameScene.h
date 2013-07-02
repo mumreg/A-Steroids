@@ -16,6 +16,7 @@
 #include "Stone.h"
 #include "Bullet.h"
 #include "Joystick.h"
+#include "World.h"
 
 class GameScene : public Layer {
 public:
@@ -28,11 +29,17 @@ public:
     virtual void touchesEnded(ASet *set);
     virtual void touchesMoved(ASet *set);
     
+    virtual void update(float dt);
+    
 private:
     Joystick *_joystick;
     Ship *_ship;
     Sprite *_fireButton;
     ASize _winSize;
+    
+    World *_world;
+    
+    bool isGamePlaying;
 };
 
 #endif /* defined(__A_Steroids__GameScene__) */

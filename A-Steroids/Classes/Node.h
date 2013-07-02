@@ -21,7 +21,7 @@ public:
     Node();
     virtual ~Node();
     virtual void render();
-    virtual void update() {}
+    virtual void update(float dt) {}
 
     virtual void setVisible(bool flag);
     virtual bool isVisible();
@@ -35,7 +35,7 @@ public:
     void setShaderProgram(const char *programName);
     ShaderProgram *getShaderProgram();
     
-    void setTouchEnabled(bool touchEnabled);
+    virtual void setTouchEnabled(bool touchEnabled);
     bool isTouchEnabled();
     
     virtual void touchesBegan(ASet *set) {}

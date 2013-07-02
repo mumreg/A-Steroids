@@ -22,16 +22,16 @@ void Layer::addChild(Node *object)
 
 void Layer::render()
 {
-    vector<Node *>::iterator it = _childs.begin();
-    for (; it != _childs.end(); ++it) {
+    vector<Node *>::reverse_iterator it = _childs.rbegin();
+    for (; it != _childs.rend(); ++it) {
         (*it)->render();
     }
 }
 
-void Layer::update()
+void Layer::update(float dt)
 {
-    vector<Node *>::iterator it = _childs.begin();
-    for (; it != _childs.end(); ++it) {
-        (*it)->update();
+    vector<Node *>::reverse_iterator it = _childs.rbegin();
+    for (; it != _childs.rend(); ++it) {
+        (*it)->update(dt);
     }
 }

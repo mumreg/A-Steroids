@@ -18,7 +18,7 @@ public:
     
     void addChild(Node *object);
     virtual void render();
-    virtual void update();
+    virtual void update(float dt);
 private:
     std::vector<Node *> _childs;
 };

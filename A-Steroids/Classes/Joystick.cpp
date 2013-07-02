@@ -11,9 +11,8 @@
 Joystick::Joystick()
 {
     staticCircle = new Sprite("static_circle.png");
-    staticCircle->setPosition({staticCircle->boundingBox().size.width,
-                                staticCircle->boundingBox().size.height});
-    
+    staticCircle->setPosition({staticCircle->boundingBox().size.width/2,
+                                staticCircle->boundingBox().size.height/2});
     addChild(staticCircle);
     
     movingCircle = new Sprite("moving_circle.png");

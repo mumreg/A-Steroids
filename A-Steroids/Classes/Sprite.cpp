@@ -56,8 +56,8 @@ void Sprite::render()
     if (!isVisible())
         return;
     
-    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     glViewport(0, 0, _winSize.width, _winSize.height);
     
@@ -106,8 +106,8 @@ void Sprite::updatePosition()
 {
     APoint position = {0, 0};
     
-    float dx = 1.0f/_winSize.width;
-    float dy = 1.0f/_winSize.height;
+    float dx = 2.0f/_winSize.width;
+    float dy = 2.0f/_winSize.height;
     
     ASize textureSize = _texture->getSize();
     
@@ -133,15 +133,15 @@ void Sprite::eval()
 {
     APoint position = getPosition();
     
-    float dx = 1.0f/_winSize.width;
-    float dy = 1.0f/_winSize.height;
+    float dx = 2.0f/_winSize.width;
+    float dy = 2.0f/_winSize.height;
     
     matrix4 translate;
     translate.setIdentity();
     
     float *translateArr = translate.glMatrix();
-    translateArr[12] = -1.0f/2 + position.x*dx;
-    translateArr[13] = -1.0f/2 + position.y*dy;
+    translateArr[12] = -1.0f + position.x*dx ;
+    translateArr[13] = -1.0f + position.y*dy;
     translateArr[14] = 0.0f;
     
     float angle = getRotation()*DegreesToRadiansFactor;

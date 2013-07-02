@@ -13,8 +13,13 @@ StartScene::StartScene()
     winSize = getWinSize();
     
     startButton = new Sprite("start_label.png");
-    startButton->setPosition(winSize.width/2, winSize.height/2);
+    startButton->setPosition({winSize.width/2, winSize.height/2});
     addChild(startButton);
+    
+    isGameRunning = false;
+    
+    gameScene = new GameScene();
+    addChild(gameScene);
     
     setTouchEnabled(true);
     addToTouchDispatcher();
@@ -40,7 +45,13 @@ void StartScene::touchesEnded(ASet *set)
         APoint *point = set->getObjectAtIndex(i);
         
         if (rectContainsPoint(&bBox, point) && startTouched) {
-            
+            startButton->setVisible(false);
+            isGameRunning = true;
+            gameScene->start();
         }
     }
+}
+
+void StartScene::update(float dt)
+{
 }

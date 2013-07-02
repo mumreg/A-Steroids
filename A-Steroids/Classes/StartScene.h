@@ -19,11 +19,14 @@ public:
     
     virtual void touchesBegan(ASet *set);
     virtual void touchesEnded(ASet *set);
+    virtual void update(float dt);
     
 private:
+    GameScene *gameScene;
     Sprite *startButton;
     ASize winSize;
     bool startTouched;
+    bool isGameRunning;
 };
 
 #endif /* defined(__A_Steroids__StartScene__) */

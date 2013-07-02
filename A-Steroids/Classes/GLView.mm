@@ -86,10 +86,10 @@
 {
     glClearColor(0, 0, 0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+//    glEnable(GL_DEPTH_TEST);
     
     scene->render();
-    scene->update();
+    scene->update(displayLink.duration);
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
