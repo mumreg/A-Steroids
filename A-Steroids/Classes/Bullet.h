@@ -10,5 +10,10 @@
 #define __A_Steroids__Bullet__
 
 #include <iostream>
+#include "BaseEngine.h"
+
+//class Bullet : public Sprite {
+//    
+//};
 
 #endif /* defined(__A_Steroids__Bullet__) */

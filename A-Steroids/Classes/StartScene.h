@@ -19,7 +19,6 @@ public:
     
     virtual void touchesBegan(ASet *set);
     virtual void touchesEnded(ASet *set);
-    virtual void update(float dt);
     
 private:
     GameScene *gameScene;

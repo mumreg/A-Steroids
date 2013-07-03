@@ -14,7 +14,8 @@
 
 enum BodyType {
     BodyTypeTriagle = 0,
-    BodyTypePolygon
+    BodyTypePolygon,
+    BodyTypeRectangle
 };
 
 class Body {
@@ -27,10 +28,16 @@ public:
     void setAccel(const APoint accel);
     const APoint getAccel();
     
+    void setRotation(const float angle);
+    float getRotation();
+    
     Sprite *getSprite();
     
     void setCollisionCallback(void (*callback)(void));
     void callCollisionCallback();
+
+    void setDamp(const float damp);
+    float getDump();
     
 private:
     Sprite *_sprite;
@@ -39,6 +46,8 @@ private:
     
     APoint _velocity;
     APoint _accel;
+    float _rotation;
+    float _damp;
     
     void (*_callback)(void);
 };

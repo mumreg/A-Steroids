@@ -8,6 +8,8 @@
 
 #include "Body.h"
 
+#define PTM_RATIO   10.0f
+
 Body::Body(APoint *verts, int vertsNumber, BodyType type, Sprite *sprite)
 {
     _sprite = sprite;
@@ -22,11 +24,33 @@ Body::Body(APoint *verts, int vertsNumber, BodyType type, Sprite *sprite)
     _bodyType = type;
     _velocity = {0, 0};
     _accel = {0, 0};
+    _rotation = 0;
+    _damp = 1.0f;
+}
+
+void Body::setDamp(const float damp)
+{
+    _damp = damp;
+}
+
+float Body::getDump()
+{
+    return _damp;
 }
 
 Sprite *Body::getSprite()
 {
     return _sprite;
+}
+
+void Body::setRotation(const float angle)
+{
+    _rotation = angle;
+}
+
+float Body::getRotation()
+{
+    return _rotation;
 }
 
 void Body::setVelocity(const APoint velocity)

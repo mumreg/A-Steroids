@@ -25,6 +25,10 @@ public:
     void start();
     void stop();
     
+    void addPhysics();
+    
+    void fireBullet();
+    
     virtual void touchesBegan(ASet *set);
     virtual void touchesEnded(ASet *set);
     virtual void touchesMoved(ASet *set);
@@ -36,6 +40,7 @@ private:
     Ship *_ship;
     Sprite *_fireButton;
     ASize _winSize;
+    Body *shipBody;
     
     World *_world;
     

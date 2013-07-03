@@ -8,13 +8,11 @@
 
 #include "World.h"
 
-#define DAMP    0.88f
-
 using namespace std;
 
-World::World()
+World::World(ARect screenRect)
 {
-    
+    _screenRect = screenRect;
 }
 
 void World::addBody(Body *body, APoint position)
@@ -26,7 +24,6 @@ void World::calcWorld(float dt)
 {
     //check for collisions
     
-    
     //calc speed
     vector<Body *>::iterator it = _bodies.begin();
     for (; it != _bodies.end(); ++it) {
@@ -34,9 +31,10 @@ void World::calcWorld(float dt)
         
         APoint velocity = body->getVelocity();
         APoint accel = body->getAccel();
+        float damp = body->getDump();
         
-        accel = {accel.x*DAMP, accel.y*DAMP};
-        velocity = {(velocity.x + accel.x)*DAMP, (velocity.y + accel.y)*DAMP};
+        accel = {accel.x*damp, accel.y*damp};
+        velocity = {(velocity.x + accel.x)*damp, (velocity.y + accel.y)*damp};
         
         body->setVelocity(velocity);
         body->setAccel(accel);
@@ -45,5 +43,14 @@ void World::calcWorld(float dt)
         APoint currentPos = sprite->getPosition();
         APoint newPos = {currentPos.x + velocity.x, currentPos.y + velocity.y};
         sprite->setPosition(newPos);
+        sprite->setRotation(body->getRotation());
+        
+        checkForDelete(newPos);
     }
+}
+
+
+bool World::checkForDelete(APoint position)
+{
+    return false;
 }

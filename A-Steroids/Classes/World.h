@@ -16,12 +16,15 @@
 
 class World {
 public:
-    World();
+    World(ARect screeRect);
     
     void addBody(Body *body, APoint position);
     void calcWorld(float dt);
 private:
+    bool checkForDelete(APoint position);
+    
     std::vector<Body *> _bodies;
+    ARect _screenRect;
 };
 
 #endif /* defined(__A_Steroids__World__) */

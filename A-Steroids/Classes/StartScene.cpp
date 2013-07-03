@@ -51,7 +51,3 @@ void StartScene::touchesEnded(ASet *set)
         }
     }
 }
-
-void StartScene::update(float dt)
-{
-}

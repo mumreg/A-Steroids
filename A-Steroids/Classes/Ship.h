@@ -15,6 +15,9 @@
 class Ship : public Sprite {
 public:
     Ship(const char *fileName, APoint position);
+    virtual void setPosition(const APoint &position);
+private:
+    ASize _winSize;
 };
 
 #endif /* defined(__A_Steroids__Ship__) */

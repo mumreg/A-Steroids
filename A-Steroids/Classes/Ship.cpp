@@ -11,6 +11,26 @@
 Ship::Ship(const char *fileName, APoint position) : Sprite(fileName)
 {
     setPosition(position);
+    _winSize = getWinSize();
 }
 
-
+void Ship::setPosition(const APoint &position)
+{
+    ASize size = boundingBox().size;
+    APoint newPos = position;
+    
+    if (position.x > _winSize.width - size.width/2) {
+        newPos.x = _winSize.width - size.width/2;
+    }
+    if (position.x < size.width/2) {
+        newPos.x = size.width/2;
+    }
+    if (position.y > _winSize.height - size.height/2) {
+        newPos.y = _winSize.height - size.height/2;
+    }
+    if (position.y < size.height/2) {
+        newPos.y = size.height/2;
+    }
+    
+    Sprite::setPosition(newPos);
+}

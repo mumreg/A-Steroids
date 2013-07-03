@@ -11,6 +11,7 @@
 #include "Utils.h"
 #include "FileUtils.h"
 #import "AppDelegate.h"
+#include <math.h>
 
 unsigned char * readFileToBuffer(const char *fileName)
 {
@@ -73,4 +74,20 @@ bool rectContainsPoint(ARect *rect, APoint *point)
     }
     
     return false;
+}
+
+float scalarMult(APoint vec1, APoint vec2)
+{
+    return (vec1.x*vec2.x) + (vec1.y*vec2.y);
+}
+
+APoint vectorMult(APoint vec1, APoint vec2)
+{
+    APoint result = {vec2.y, -vec2.x};
+    return result;
+}
+
+float vecLength(APoint vec)
+{
+    return sqrtf(vec.x*vec.x + vec.y*vec.y);
 }
