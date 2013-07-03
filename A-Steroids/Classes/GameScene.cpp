@@ -30,6 +30,9 @@ GameScene::GameScene()
     
     addPhysics();
     
+//    srand(time(NULL));
+//    Stone *st = new Stone({0, 0});
+    
     addToTouchDispatcher();
 }
 
