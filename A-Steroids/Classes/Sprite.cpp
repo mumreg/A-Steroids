@@ -10,7 +10,6 @@
 #include <math.h>
 #include "Utils.h"
 
-#define Z_POS       0.00
 #define DEF_COLOR   1, 1, 1, 1
 
 const GLubyte Indices[] = {
@@ -55,6 +54,9 @@ void Sprite::render()
 {
     if (!isVisible())
         return;
+    
+    setShaderProgram(kShaderTextureAndColor);
+    getShaderProgram()->use();
     
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

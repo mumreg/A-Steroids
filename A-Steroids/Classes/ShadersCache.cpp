@@ -8,7 +8,7 @@
 
 #include "ShadersCache.h"
 
-const char *shaderNames[] = {kShaderTextureAndColor};
+const char *shaderNames[] = {kShaderTextureAndColor, kShaderColor};
 
 ShadersCache *ShadersCache::sharedInstance()
 {

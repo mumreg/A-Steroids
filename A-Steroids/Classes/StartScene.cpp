@@ -11,11 +11,11 @@
 StartScene::StartScene()
 {
     winSize = getWinSize();
-    
+
     startButton = new Sprite("start_label.png");
     startButton->setPosition({winSize.width/2, winSize.height/2});
     addChild(startButton);
-    
+
     isGameRunning = false;
     
     gameScene = new GameScene();

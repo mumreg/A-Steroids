@@ -1,34 +1,54 @@
 //
-//  Stone.h
+//  Sprite.h
 //  A-Steroids
 //
-//  Created by Mikhail Perekhodtsev on 01.07.13.
+//  Created by Mikhail Perekhodtsev on 18.06.13.
 //  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
 //
 
-#ifndef __A_Steroids__Stone__
-#define __A_Steroids__Stone__
+#ifndef __A_Steroids__Sprite1__
+#define __A_Steroids__Sprite1__
 
 #include <iostream>
-#include "BaseEngine.h"
+#include "Node.h"
+#include "Texture.h"
+
+#define MAX_VERTS   16
+#define MIN_VERTS   10
+#define MIN_ANGLES  5
 
 class Stone : public Node {
 public:
-    Stone(const APoint &position);
+    Stone();
     ~Stone();
     
     virtual void render();
-    virtual void update(float dt);
+    virtual void setPosition(const APoint &position);
+    virtual void setPosition(float x, float y);
+    virtual void setRotation(const float rotation);
+    
 private:
+    void eval();
+    void updatePosition();
     int direction(APoint a, APoint b, APoint c);
+    void generateVerts();
+
+    GLuint _colorLocation;
+    GLuint _mvLocation;
+//    GLuint _projLocation;
+    GLuint _positionLocation;
     
-    APoint _position;
-    ASize _winSize;
-    float minSize;
-    float maxSize;
+    GLuint _vertexBuffer;
+    GLuint _indexBuffer;
     
-    APoint *_verts;
+    AVertexColor _vertices[MAX_VERTS];
+    GLubyte Indices[MAX_VERTS*2];
+    matrix4 _modelView;
     int _vertsN;
+    float maxSize;
+//    float _projection[16];
+    
+    ASize _winSize;
 };
 
-#endif /* defined(__A_Steroids__Stone__) */
+#endif /* defined(__A_Steroids__Sprite__) */

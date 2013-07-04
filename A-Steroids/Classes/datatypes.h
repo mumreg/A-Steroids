@@ -52,4 +52,9 @@ typedef struct _Vertex {
     ATexCoords TexCoord; // New
 } AVertex;
 
+typedef struct _VertexColor {
+    float position[3];
+    AColor color;
+} AVertexColor;
+
 #endif

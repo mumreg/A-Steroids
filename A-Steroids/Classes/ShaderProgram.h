@@ -15,6 +15,7 @@
 #import <OpenGLES/ES2/glext.h>
 
 #define kShaderTextureAndColor "Texture_and_color"
+#define kShaderColor           "Color"
 
 #define kShaderMVUniform        "modelView"
 #define kShaderProjectUniform   "projection"

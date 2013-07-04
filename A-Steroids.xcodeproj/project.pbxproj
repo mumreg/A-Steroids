@@ -11,7 +11,6 @@
 		ED2C957F1781791D00D6A31D /* start_label.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C957E1781791D00D6A31D /* start_label.png */; };
 		ED2C95891781940300D6A31D /* GLViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95881781940300D6A31D /* GLViewController.mm */; };
 		ED2C958D1781B49700D6A31D /* Ship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C958B1781B49700D6A31D /* Ship.cpp */; };
-		ED2C95901781B4A400D6A31D /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C958E1781B4A400D6A31D /* Stone.cpp */; };
 		ED2C95931781B4B600D6A31D /* Bullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95911781B4B600D6A31D /* Bullet.cpp */; };
 		ED2C95971781B4D900D6A31D /* Joystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95951781B4D900D6A31D /* Joystick.cpp */; };
 		ED2C95A01782C30700D6A31D /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959B1782C30700D6A31D /* bullet.png */; };
@@ -21,6 +20,9 @@
 		ED2C95A41782C30700D6A31D /* static_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = ED2C959F1782C30700D6A31D /* static_circle.png */; };
 		ED2C95AB1782FAFB00D6A31D /* Body.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95A91782FAFB00D6A31D /* Body.cpp */; };
 		ED2C95AE1782FB1100D6A31D /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95AC1782FB1000D6A31D /* World.cpp */; };
+		ED2C95B51785A75600D6A31D /* Color.fsh in Resources */ = {isa = PBXBuildFile; fileRef = ED2C95B117859C1800D6A31D /* Color.fsh */; };
+		ED2C95B61785A75600D6A31D /* Color.vsh in Resources */ = {isa = PBXBuildFile; fileRef = ED2C95B217859C1800D6A31D /* Color.vsh */; };
+		ED2C95B91785C75700D6A31D /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95B71785C75700D6A31D /* Stone.cpp */; };
 		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
 		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
 		ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */; };
@@ -61,8 +63,6 @@
 		ED2C95881781940300D6A31D /* GLViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = GLViewController.mm; path = Classes/GLViewController.mm; sourceTree = "<group>"; };
 		ED2C958B1781B49700D6A31D /* Ship.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ship.cpp; path = "A-Steroids/Classes/Ship.cpp"; sourceTree = "<group>"; };
 		ED2C958C1781B49700D6A31D /* Ship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ship.h; path = "A-Steroids/Classes/Ship.h"; sourceTree = "<group>"; };
-		ED2C958E1781B4A400D6A31D /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = "A-Steroids/Classes/Stone.cpp"; sourceTree = "<group>"; };
-		ED2C958F1781B4A400D6A31D /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = "A-Steroids/Classes/Stone.h"; sourceTree = "<group>"; };
 		ED2C95911781B4B600D6A31D /* Bullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bullet.cpp; path = "A-Steroids/Classes/Bullet.cpp"; sourceTree = "<group>"; };
 		ED2C95921781B4B600D6A31D /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bullet.h; path = "A-Steroids/Classes/Bullet.h"; sourceTree = "<group>"; };
 		ED2C95951781B4D900D6A31D /* Joystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Joystick.cpp; path = "A-Steroids/Classes/Joystick.cpp"; sourceTree = "<group>"; };
@@ -76,6 +76,10 @@
 		ED2C95AA1782FAFB00D6A31D /* Body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Body.h; path = "A-Steroids/Classes/Body.h"; sourceTree = "<group>"; };
 		ED2C95AC1782FB1000D6A31D /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = World.cpp; path = "A-Steroids/Classes/World.cpp"; sourceTree = "<group>"; };
 		ED2C95AD1782FB1000D6A31D /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = World.h; path = "A-Steroids/Classes/World.h"; sourceTree = "<group>"; };
+		ED2C95B117859C1800D6A31D /* Color.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Color.fsh; path = Resources/Color.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		ED2C95B217859C1800D6A31D /* Color.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = Color.vsh; path = Resources/Color.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		ED2C95B71785C75700D6A31D /* Stone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Stone.cpp; path = "A-Steroids/Classes/Stone.cpp"; sourceTree = "<group>"; };
+		ED2C95B81785C75700D6A31D /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stone.h; path = "A-Steroids/Classes/Stone.h"; sourceTree = "<group>"; };
 		ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderProgram.cpp; path = Classes/ShaderProgram.cpp; sourceTree = "<group>"; };
 		ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = Classes/ShaderProgram.h; sourceTree = "<group>"; };
 		ED2C9A581753D12F00D0C2F8 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = Classes/GameConfig.h; sourceTree = "<group>"; };
@@ -173,10 +177,10 @@
 		ED2C958A1781B47900D6A31D /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C95B71785C75700D6A31D /* Stone.cpp */,
+				ED2C95B81785C75700D6A31D /* Stone.h */,
 				ED2C958B1781B49700D6A31D /* Ship.cpp */,
 				ED2C958C1781B49700D6A31D /* Ship.h */,
-				ED2C958E1781B4A400D6A31D /* Stone.cpp */,
-				ED2C958F1781B4A400D6A31D /* Stone.h */,
 				ED2C95911781B4B600D6A31D /* Bullet.cpp */,
 				ED2C95921781B4B600D6A31D /* Bullet.h */,
 			);
@@ -323,6 +327,8 @@
 		EDBC6FFD176F00D90049BD82 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED2C95B117859C1800D6A31D /* Color.fsh */,
+				ED2C95B217859C1800D6A31D /* Color.vsh */,
 				EDBC6FFE176F01B20049BD82 /* Texture_and_color.fsh */,
 				EDBC6FFF176F01B20049BD82 /* Texture_and_color.vsh */,
 			);
@@ -451,6 +457,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2C95B51785A75600D6A31D /* Color.fsh in Resources */,
+				ED2C95B61785A75600D6A31D /* Color.vsh in Resources */,
 				ED7DB6111776F87E00C6CD99 /* Texture_and_color.fsh in Resources */,
 				ED7DB6121776F87E00C6CD99 /* Texture_and_color.vsh in Resources */,
 				ED5EC8FB17422D02003C01DB /* InfoPlist.strings in Resources */,
@@ -495,11 +503,11 @@
 				ED2C957D1781745E00D6A31D /* GameScene.cpp in Sources */,
 				ED2C95891781940300D6A31D /* GLViewController.mm in Sources */,
 				ED2C958D1781B49700D6A31D /* Ship.cpp in Sources */,
-				ED2C95901781B4A400D6A31D /* Stone.cpp in Sources */,
 				ED2C95931781B4B600D6A31D /* Bullet.cpp in Sources */,
 				ED2C95971781B4D900D6A31D /* Joystick.cpp in Sources */,
 				ED2C95AB1782FAFB00D6A31D /* Body.cpp in Sources */,
 				ED2C95AE1782FB1100D6A31D /* World.cpp in Sources */,
+				ED2C95B91785C75700D6A31D /* Stone.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

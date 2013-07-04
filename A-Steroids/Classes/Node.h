@@ -16,6 +16,8 @@
 #include "TouchProtocol.h"
 #include "matrx4.h"
 
+#define Z_POS       0.00
+
 class Node : public TouchProtocol {
 public:
     Node();

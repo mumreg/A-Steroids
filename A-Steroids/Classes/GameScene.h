@@ -13,10 +13,10 @@
 #include "BaseEngine.h"
 
 #include "Ship.h"
-#include "Stone.h"
 #include "Bullet.h"
 #include "Joystick.h"
 #include "World.h"
+#include "Stone.h"
 
 class GameScene : public Layer {
 public:

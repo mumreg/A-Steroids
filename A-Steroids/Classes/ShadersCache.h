@@ -12,7 +12,7 @@
 #include <iostream>
 #include "ShaderProgram.h"
 
-#define SHADERS_N   1
+#define SHADERS_N   2
 
 class ShadersCache {
 public:
