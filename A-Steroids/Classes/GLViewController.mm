@@ -24,6 +24,7 @@
                                  screenBounds.size.height*scale, screenBounds.size.width*scale);
     
     GLView *glView = [[GLView alloc] initWithFrame:myBounds];
+    [glView setMultipleTouchEnabled:YES];
     [glView setContentScaleFactor:scale];
     self.view = glView;
     

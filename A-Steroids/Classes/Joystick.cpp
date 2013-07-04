@@ -82,7 +82,7 @@ void Joystick::touchesMoved(ASet *set)
 
 void Joystick::touchesEnded(ASet *set)
 {
-    isTouched = false;
+//    isTouched = false;
 }
 
 void Joystick::restrictPoint(APoint *p)
