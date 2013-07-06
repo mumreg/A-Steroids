@@ -27,7 +27,7 @@ void World::calcWorld(float dt)
     //check for collisions
     for (; it != _bodies.end(); ++it) {
         Body *body1 = (*it);
-        if (body1->getBodyType() == BodyTypeTriangle) {
+        if (body1->getBodyType() == BodyTypeTriangle || body1->getBodyType() == BodyTypeRectangle) {
             
             vector<Body *>::iterator it2 = _bodies.begin();
             
@@ -63,7 +63,7 @@ void World::calcWorld(float dt)
         APoint currentPos = sprite->getPosition();
         APoint newPos = {currentPos.x + velocity.x, currentPos.y + velocity.y};
         sprite->setPosition(newPos);
-//        sprite->setRotation(body->getRotation());
+        sprite->setRotation(body->getRotation());
         
         checkForDelete(newPos);
     }
@@ -127,14 +127,14 @@ bool World::checkCollision(Body *body1, Body *body2)
     APoint edge, p1, p2;
     for (int i = 0; i < vertsN1 + vertsN2; i++) {
         if (i < vertsN1) {
-            p1 = { body1_verts[i].x, body1_verts[i].y };
-            p2 = { body1_verts[(i + 1) % vertsN1].x, body1_verts[(i + 1) % vertsN1].y };
-            edge = { p2.x - p1.x + pos1.x, p2.y - p1.y + pos1.y };
+            p1 = { body1_verts[i].x + pos1.x, body1_verts[i].y + pos1.y };
+            p2 = { body1_verts[(i + 1) % vertsN1].x + pos1.x, body1_verts[(i + 1) % vertsN1].y + pos1.y };
+            edge = { p2.x - p1.x, p2.y - p1.y };
         }
         else {
-            p1 = { body2_verts[i - vertsN1].x, body2_verts[i - vertsN1].y };
-            p2 = { body2_verts[(i - vertsN1 + 1) % vertsN2].x, body2_verts[(i - vertsN1 + 1) % vertsN2].y };
-            edge = { p2.x - p1.x + pos2.x, p2.y - p1.y + pos2.y };
+            p1 = { body2_verts[i - vertsN1].x + pos2.x, body2_verts[i - vertsN1].y + pos2.y };
+            p2 = { body2_verts[(i - vertsN1 + 1) % vertsN2].x + pos2.x, body2_verts[(i - vertsN1 + 1) % vertsN2].y + pos2.y};
+            edge = { p2.x - p1.x, p2.y - p1.y };
         }
         
         APoint axis = normalize({ -edge.y, edge.x });
