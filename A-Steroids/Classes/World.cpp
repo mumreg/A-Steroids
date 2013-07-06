@@ -27,14 +27,16 @@ void World::calcWorld(float dt)
     //check for collisions
     for (; it != _bodies.end(); ++it) {
         Body *body1 = (*it);
-        if (body1->getBodyType() == BodyTypeRectangle ||
-                body1->getBodyType() == BodyTypeTriagle) {
+        if (body1->getBodyType() == BodyTypeTriangle) {
             
             vector<Body *>::iterator it2 = _bodies.begin();
+            
             for (; it2 != _bodies.end(); ++it2) {
                 Body *body2 = (*it2);
+                
                 if (body1 != body2 && body2->getBodyType() == BodyTypePolygon) {
                     if (checkCollision(body1, body2)) {
+                        body1->callCollisionCallback();
                         body2->callCollisionCallback();
                     }
                 }
@@ -97,6 +99,15 @@ float World::distance(float minA, float maxA, float minB, float maxB)
     }
 }
 
+void World::offsetPosition(APoint *position, Body *body)
+{
+    Node *body_sprite = (Node *)body->getNode();
+    APoint anchorPoint = body->getNode()->getAnchorPoint();
+    ASize body_size = body_sprite->getBoundingBox().size;
+    position->x -= body_size.width * anchorPoint.x;
+    position->y -= body_size.height * anchorPoint.y;
+}
+
 //body1 - triangle or rect
 //body2 - polygon (i.e. stone)
 bool World::checkCollision(Body *body1, Body *body2)
@@ -107,11 +118,8 @@ bool World::checkCollision(Body *body1, Body *body2)
     APoint pos1 = body1->getNode()->getPosition();
     APoint pos2 = body2->getNode()->getPosition();
     
-    Sprite *body1_sprite = (Sprite *)body1->getNode();
-    APoint anchorPoint1 = body1->getNode()->getAnchorPoint();
-    ASize body1_size = body1_sprite->boundingBox().size;
-    pos1.x -= body1_size.width * anchorPoint1.x;
-    pos1.y -= body1_size.height * anchorPoint1.y;
+    offsetPosition(&pos1, body1);
+    offsetPosition(&pos2, body2);
     
     int vertsN1 = body1->getVertsNumber();
     int vertsN2 = body2->getVertsNumber();

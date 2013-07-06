@@ -37,6 +37,9 @@ public:
     virtual void setRotation(const float angle);
     virtual const float getRotation();
     
+    virtual void setBoundingBox(ARect &rect);
+    virtual ARect getBoundingBox();
+    
     virtual void callback();
     
     void setShaderProgram(const char *programName);
@@ -57,6 +60,7 @@ private:
     bool _isVisble;
     APoint _position;
     APoint _anchorPoint;
+    ARect _boundingBox;
     float _angle;
     bool _touchEnabled;
 };

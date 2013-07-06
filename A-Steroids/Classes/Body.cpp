@@ -8,8 +8,6 @@
 
 #include "Body.h"
 
-#define PTM_RATIO   10.0f
-
 Body::Body(const APoint *verts, int vertsNumber, BodyType type, Node *node)
 {
     _node = node;
@@ -92,4 +90,9 @@ const APoint Body::getAccel()
 void Body::callCollisionCallback()
 {
     _node->callback();
+}
+
+Body::~Body()
+{
+    delete [] _verts;
 }

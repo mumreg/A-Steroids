@@ -8,3 +8,7 @@
 
 #include "Bullet.h"
 
+void Bullet::callback()
+{
+    setVisible(false);
+}

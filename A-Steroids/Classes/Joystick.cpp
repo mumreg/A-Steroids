@@ -15,8 +15,8 @@
 Joystick::Joystick()
 {
     staticCircle = new Sprite("static_circle.png");
-    staticCircle->setPosition({staticCircle->boundingBox().size.width/2,
-                                staticCircle->boundingBox().size.height/2});
+    staticCircle->setPosition({staticCircle->getBoundingBox().size.width/2,
+                                staticCircle->getBoundingBox().size.height/2});
     addChild(staticCircle);
     
     movingCircle = new Sprite("moving_circle.png");
@@ -56,7 +56,7 @@ void Joystick::update(float dt)
 
 void Joystick::touchesBegan(ASet *set)
 {
-    ARect movingRect = movingCircle->boundingBox();
+    ARect movingRect = movingCircle->getBoundingBox();
     
     for (int i = 0; i < set->getSize(); i++) {
         APoint *p = set->getObjectAtIndex(i);
@@ -69,7 +69,7 @@ void Joystick::touchesBegan(ASet *set)
 
 void Joystick::touchesMoved(ASet *set)
 {
-    ARect movingRect = movingCircle->boundingBox();
+    ARect movingRect = movingCircle->getBoundingBox();
     
     for (int i = 0; i < set->getSize(); i++) {
         APoint *p = set->getObjectAtIndex(i);
@@ -88,7 +88,7 @@ void Joystick::touchesEnded(ASet *set)
 void Joystick::restrictPoint(APoint *p)
 {
     APoint center = staticCircle->getPosition();
-    float r = staticCircle->boundingBox().size.width/4;
+    float r = staticCircle->getBoundingBox().size.width/4;
     
     if (p->x > center.x + r) {
         p->x = center.x + r;
@@ -106,7 +106,7 @@ void Joystick::restrictPoint(APoint *p)
 
 ARect Joystick::boundingBox()
 {
-    return movingCircle->boundingBox();
+    return movingCircle->getBoundingBox();
 }
 
 Joystick::~Joystick()

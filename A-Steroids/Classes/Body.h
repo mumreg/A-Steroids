@@ -13,7 +13,7 @@
 #include "Sprite.h"
 
 enum BodyType {
-    BodyTypeTriagle = 0,
+    BodyTypeTriangle = 0,
     BodyTypePolygon,
     BodyTypeRectangle
 };
@@ -21,6 +21,7 @@ enum BodyType {
 class Body {
 public:
     Body(const APoint *verts, int vertsNumber, BodyType type, Node *node);
+    ~Body();
     
     void setVelocity(const APoint velocity);
     const APoint getVelocity();

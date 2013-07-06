@@ -19,6 +19,7 @@ using namespace std;
 Stone::Stone()
 {
     _winSize = getWinSize();
+    setAnchorPoint( {0.5f, 0.5f} );
     
     generateVerts();
     eval();
@@ -138,25 +139,46 @@ void Stone::generateVerts()
     color.g += dcolor;
     color.b += dcolor;
     
-    for (int i = 0; i < H.size(); i++) {
-        _vertices[i] = {{verts[H[i]].x*dx, verts[H[i]].y*dy, Z_POS}, color};
-        _screenVerts[i] = { verts[H[i]].x, verts[H[i]].y };
-//        printf("%f %f\n", _vertices[i].position[0], _vertices[i].position[1]);
-    }
-//    printf("\n");
+    APoint left = { verts[H[0]].x, verts[H[0]].y };
+    APoint right = left;
+    APoint up = left;
+    APoint down = left;
     
     for (int i = 0; i < H.size(); i++) {
+        APoint point = verts[H[i]];
+        
+        if (point.x < left.x) {
+            left = point;
+        }
+        if (point.x > right.x) {
+            right = point;
+        }
+        if (point.y < down.y) {
+            down = point;
+        }
+        if (point.y > up.y) {
+            up = point;
+        }
+    }
+    
+    float width = right.x - left.x;
+    float height = up.y - down.y;
+    
+    ARect _boundingBox = { -width/2,  -height/2, width, height};
+    setBoundingBox(_boundingBox);
+    
+    APoint anchorPoint = getAnchorPoint();
+    for (int i = 0; i < H.size(); i++) {
+        
+        _vertices[i] = {{verts[H[i]].x*dx - _boundingBox.size.width*anchorPoint.x*dx,
+                         verts[H[i]].y*dy - _boundingBox.size.height*anchorPoint.y*dy,
+                         Z_POS}, color};
+        
+        _screenVerts[i] = { verts[H[i]].x, verts[H[i]].y };
         Indices[i] = i;
     }
     
-//    for (int i = 0; i < H.size(); i++) {
-//        printf("%d ", Indices[i]);
-//    }
-//    printf("\n");
-    
     _vertsN = H.size();
-//    printf("verts: %d\n", _vertsN);
-    
     
     delete [] verts;
 }

@@ -80,7 +80,7 @@ void Sprite::render()
     glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
-ARect Sprite::boundingBox()
+ARect Sprite::getBoundingBox()
 {
     APoint position = getPosition();
     ASize texSize = _texture->getSize();

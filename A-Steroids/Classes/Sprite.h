@@ -23,7 +23,7 @@ public:
     virtual void setPosition(float x, float y);
     virtual void setRotation(const float rotation);
     
-    ARect boundingBox();
+    virtual ARect getBoundingBox();
     
 private:
     void eval();

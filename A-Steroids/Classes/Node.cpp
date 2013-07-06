@@ -88,10 +88,18 @@ void Node::setShaderProgram(const char *programName)
     _shaderProgram = ShadersCache::sharedInstance()->getProgram(programName);
 }
 
-void Node::callback()
+void Node::setBoundingBox(ARect &rect)
 {
-    
+    _boundingBox = rect;
 }
+
+ARect Node::getBoundingBox()
+{
+    return _boundingBox;
+}
+
+void Node::callback()
+{}
 
 ShaderProgram *Node::getShaderProgram()
 {

@@ -26,6 +26,7 @@ private:
     bool checkCollision(Body *body1, Body *body2);
     void projectPolygon(APoint *verts, int vertsN, APoint axis, APoint offset, float *min, float *max);
     float distance(float minA, float maxA, float minB, float maxB);
+    void offsetPosition(APoint *position, Body *body);
     
     std::vector<Body *> _bodies;
     ARect _screenRect;

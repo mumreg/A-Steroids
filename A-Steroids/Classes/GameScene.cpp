@@ -11,9 +11,12 @@
 
 using namespace std;
 
-#define SHIP_DAMP    0.99f
-#define SHIP_VERTS   {0, 0}, {0, 33.0f}, {64.0f, 33.0f/2}
-#define BULLET_VERTS {0.0f, 0.0f}, {0.0f, 15.0f}, {5.0f, 15.0f}, {5.0f, 0.0f}
+#define SHIP_DAMP       0.99f
+#define SHIP_VERTS      {0, 0}, {0, 33.0f}, {64.0f, 33.0f/2}
+#define SHIP_VERTS_N    3
+
+#define BULLET_VERTS    {0.0f, 0.0f}, {0.0f, 15.0f}, {5.0f, 15.0f}, {5.0f, 0.0f}
+#define BULLET_VERTS_N  4
 
 #define MIN_STONES      6
 #define MAX_STONES      8
@@ -28,8 +31,8 @@ GameScene::GameScene()
     _winSize = getWinSize();
     
     _fireButton = new Sprite("fire_button.png");
-    _fireButton->setPosition({_winSize.width - _fireButton->boundingBox().size.width/2,
-                             _fireButton->boundingBox().size.height/2});
+    _fireButton->setPosition({_winSize.width - _fireButton->getBoundingBox().size.width/2,
+                             _fireButton->getBoundingBox().size.height/2});
     addChild(_fireButton);
     
     _joystick = new Joystick();
@@ -51,7 +54,7 @@ void GameScene::addStones()
     
     float xpos = 0, ypos = 0;
     
-    for (int i = 0; i < stonesN; i++) {
+    for (int i = 0; i < 1; i++) {
         Stone *st = new Stone();
         
         if (i < stonesN/2) {
@@ -74,7 +77,7 @@ void GameScene::addPhysics()
     _world = new World({0, 0, _winSize.width, _winSize.height});
     
     APoint shipVerts[] = {SHIP_VERTS};
-    shipBody = new Body(shipVerts, 3, BodyTypeTriagle, _ship);
+    shipBody = new Body(shipVerts, SHIP_VERTS_N, BodyTypeTriangle, _ship);
     shipBody->setDamp(SHIP_DAMP);
     _world->addBody(shipBody, _ship->getPosition());
     
@@ -100,19 +103,19 @@ void GameScene::fireBullet()
 {
     float angle = _ship->getRotation()*DegreesToRadiansFactor;
     
-    float xpos = _ship->getPosition().x + _ship->boundingBox().size.width/2*cosf(angle);
-    float ypos = _ship->getPosition().y + _ship->boundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
+    float xpos = _ship->getPosition().x + _ship->getBoundingBox().size.width/2*cosf(angle);
+    float ypos = _ship->getPosition().y + _ship->getBoundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
     
-    Sprite *bullet = new Sprite("bullet.png");
+    Sprite *bullet = new Bullet("bullet.png");
     
-    float xoffset = bullet->boundingBox().size.width/2*cosf(angle);
-    float yoffset = bullet->boundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
+    float xoffset = bullet->getBoundingBox().size.width/2*cosf(angle);
+    float yoffset = bullet->getBoundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
     
     bullet->setPosition({xpos + xoffset, ypos + yoffset});
     bullet->setRotation(_ship->getRotation());
     
     APoint bulletVerts[] = {BULLET_VERTS};
-    Body *bulletBody = new Body(bulletVerts, 4, BodyTypeRectangle, bullet);
+    Body *bulletBody = new Body(bulletVerts, BULLET_VERTS_N, BodyTypeRectangle, bullet);
     
     bulletBody->setRotation(bullet->getRotation());
     bulletBody->setVelocity({bullet->getPosition().x - _ship->getPosition().x,
@@ -125,7 +128,7 @@ void GameScene::fireBullet()
 
 void GameScene::touchesBegan(ASet *set)
 {
-    ARect fireRect = _fireButton->boundingBox();
+    ARect fireRect = _fireButton->getBoundingBox();
     
     for (int i = 0; i < set->getSize(); i++) {
         APoint *p = set->getObjectAtIndex(i);

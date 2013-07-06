@@ -27,7 +27,7 @@ StartScene::StartScene()
 
 void StartScene::touchesBegan(ASet *set)
 {
-    ARect bBox = startButton->boundingBox();
+    ARect bBox = startButton->getBoundingBox();
     
     for (int i = 0; i < set->getSize(); i++) {
         APoint *point = set->getObjectAtIndex(i);
@@ -40,7 +40,7 @@ void StartScene::touchesBegan(ASet *set)
 
 void StartScene::touchesEnded(ASet *set)
 {
-    ARect bBox = startButton->boundingBox();
+    ARect bBox = startButton->getBoundingBox();
     for (int i = 0; i < set->getSize(); i++) {
         APoint *point = set->getObjectAtIndex(i);
         

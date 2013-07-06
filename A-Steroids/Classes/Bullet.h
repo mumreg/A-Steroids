@@ -12,8 +12,10 @@
 #include <iostream>
 #include "BaseEngine.h"
 
-//class Bullet : public Sprite {
-//    
-//};
+class Bullet : public Sprite {
+public:
+    Bullet(const char *fileName) : Sprite(fileName) {}
+    virtual void callback();
+};
 
 #endif /* defined(__A_Steroids__Bullet__) */
