@@ -20,5 +20,6 @@ extern bool rectContainsPoint(ARect *rect, APoint *point);
 extern float scalarMult(APoint vec1, APoint vec2);
 extern float vecLength(APoint vec);
 extern APoint vectorMult(APoint vec1, APoint vec2);
+extern APoint normalize(APoint vector);
 
 #endif /* defined(__A_Steroids__Utils__) */

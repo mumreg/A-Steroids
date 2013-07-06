@@ -27,6 +27,12 @@ public:
     virtual void setPosition(float x, float y);
     virtual void setRotation(const float rotation);
     
+    virtual void callback();
+    
+    void removeFromView();
+    const APoint *getScreenVerts();
+    int getVertsNumber();
+    
 private:
     void eval();
     void updatePosition();
@@ -42,6 +48,7 @@ private:
     GLuint _indexBuffer;
     
     AVertexColor _vertices[MAX_VERTS];
+    APoint *_screenVerts;
     GLubyte Indices[MAX_VERTS*2];
     matrix4 _modelView;
     int _vertsN;

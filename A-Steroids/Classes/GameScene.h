@@ -25,8 +25,6 @@ public:
     void start();
     void stop();
     
-    void addPhysics();
-    
     void fireBullet();
     
     virtual void touchesBegan(ASet *set);
@@ -36,11 +34,16 @@ public:
     virtual void update(float dt);
     
 private:
+    void addPhysics();
+    void addStones();
+    
     Joystick *_joystick;
     Ship *_ship;
     Sprite *_fireButton;
     ASize _winSize;
     Body *shipBody;
+    
+    std::vector<Node *>stones;
     
     World *_world;
     

@@ -24,6 +24,7 @@ Sprite::Sprite(const char *fileName)
     
     _winSize = getWinSize();
     
+    setAnchorPoint({ 0.5f, 0.5f });
     updatePosition();
     eval();
     

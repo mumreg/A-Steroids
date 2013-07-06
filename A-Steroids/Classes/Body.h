@@ -20,7 +20,7 @@ enum BodyType {
 
 class Body {
 public:
-    Body(APoint *verts, int vertsNumber, BodyType type, Sprite *sprite);
+    Body(const APoint *verts, int vertsNumber, BodyType type, Node *node);
     
     void setVelocity(const APoint velocity);
     const APoint getVelocity();
@@ -31,17 +31,22 @@ public:
     void setRotation(const float angle);
     float getRotation();
     
-    Sprite *getSprite();
+    Node *getNode();
     
     void setCollisionCallback(void (*callback)(void));
     void callCollisionCallback();
 
     void setDamp(const float damp);
-    float getDump();
+    float getDamp();
+    
+    int getBodyType();
+    APoint *getVerts();
+    int getVertsNumber();
     
 private:
-    Sprite *_sprite;
+    Node *_node;
     APoint *_verts;
+    int _vertsN;
     int _bodyType;
     
     APoint _velocity;

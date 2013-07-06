@@ -10,15 +10,16 @@
 
 #define PTM_RATIO   10.0f
 
-Body::Body(APoint *verts, int vertsNumber, BodyType type, Sprite *sprite)
+Body::Body(const APoint *verts, int vertsNumber, BodyType type, Node *node)
 {
-    _sprite = sprite;
+    _node = node;
     _verts = new APoint[vertsNumber];
     
     for (int i = 0; i < vertsNumber; i++) {
         _verts[i] = verts[i];
     }
     
+    _vertsN = vertsNumber;
     _callback = NULL;
     
     _bodyType = type;
@@ -28,19 +29,34 @@ Body::Body(APoint *verts, int vertsNumber, BodyType type, Sprite *sprite)
     _damp = 1.0f;
 }
 
+APoint *Body::getVerts()
+{
+    return _verts;
+}
+
+int Body::getVertsNumber()
+{
+    return _vertsN;
+}
+
+int Body::getBodyType()
+{
+    return _bodyType;
+}
+
 void Body::setDamp(const float damp)
 {
     _damp = damp;
 }
 
-float Body::getDump()
+float Body::getDamp()
 {
     return _damp;
 }
 
-Sprite *Body::getSprite()
+Node *Body::getNode()
 {
-    return _sprite;
+    return _node;
 }
 
 void Body::setRotation(const float angle)
@@ -75,6 +91,5 @@ const APoint Body::getAccel()
 
 void Body::callCollisionCallback()
 {
-    if (_callback != NULL)
-        _callback();
+    _node->callback();
 }

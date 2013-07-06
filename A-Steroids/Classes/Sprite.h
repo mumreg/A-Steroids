@@ -39,7 +39,7 @@ private:
     
     GLuint _vertexBuffer;
     GLuint _indexBuffer;
-    
+
     AVertex _vertices[4];
     matrix4 _modelView;
 //    float _projection[16];

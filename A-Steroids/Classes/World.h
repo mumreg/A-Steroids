@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "Body.h"
+#include "Utils.h"
 
 class World {
 public:
@@ -22,6 +23,9 @@ public:
     void calcWorld(float dt);
 private:
     bool checkForDelete(APoint position);
+    bool checkCollision(Body *body1, Body *body2);
+    void projectPolygon(APoint *verts, int vertsN, APoint axis, APoint offset, float *min, float *max);
+    float distance(float minA, float maxA, float minB, float maxB);
     
     std::vector<Body *> _bodies;
     ARect _screenRect;

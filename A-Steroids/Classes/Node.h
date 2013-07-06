@@ -31,8 +31,13 @@ public:
     virtual void setPosition(const APoint &position);
     virtual const APoint& getPosition();
     
+    virtual void setAnchorPoint(const APoint &anchorPoint);
+    virtual const APoint& getAnchorPoint();
+    
     virtual void setRotation(const float angle);
     virtual const float getRotation();
+    
+    virtual void callback();
     
     void setShaderProgram(const char *programName);
     ShaderProgram *getShaderProgram();
@@ -51,6 +56,7 @@ private:
     
     bool _isVisble;
     APoint _position;
+    APoint _anchorPoint;
     float _angle;
     bool _touchEnabled;
 };

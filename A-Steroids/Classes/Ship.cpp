@@ -10,8 +10,8 @@
 
 Ship::Ship(const char *fileName, APoint position) : Sprite(fileName)
 {
-    setPosition(position);
     _winSize = getWinSize();
+    setPosition(position);
 }
 
 void Ship::setPosition(const APoint &position)

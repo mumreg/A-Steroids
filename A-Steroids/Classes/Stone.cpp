@@ -12,7 +12,9 @@
 
 using namespace std;
 
-#define DEF_COLOR   127/255.0f, 80/255.0f, 73/255.0f, 1.0f
+#define DEF_COLOR       164/255.0f, 164/255.0f, 164/255.0f, 1.0f
+#define DCOLOR          40
+#define STONE_MAX_SIZE  150
 
 Stone::Stone()
 {
@@ -40,6 +42,11 @@ Stone::Stone()
     glEnableVertexAttribArray(_colorLocation);
 }
 
+void Stone::callback()
+{
+    setVisible(false);
+}
+
 void Stone::render()
 {
     if (!isVisible())
@@ -64,9 +71,10 @@ void Stone::render()
     glDrawElements(GL_TRIANGLE_FAN, _vertsN, GL_UNSIGNED_BYTE, 0);
 }
 
+//Using jarvis alg
 void Stone::generateVerts()
 {
-    maxSize = 150;
+    maxSize = STONE_MAX_SIZE;
     vector<int> H;
     vector<int> indexes;
     APoint *verts;
@@ -122,23 +130,33 @@ void Stone::generateVerts()
     float dx = 2.0f/_winSize.width;
     float dy = 2.0f/_winSize.height;
     
+    _screenVerts = new APoint[H.size()];
+    
+    AColor color = {DEF_COLOR};
+    float dcolor = (-DCOLOR/2 + (rand() % DCOLOR))/255.0f;
+    color.r += dcolor;
+    color.g += dcolor;
+    color.b += dcolor;
+    
     for (int i = 0; i < H.size(); i++) {
-        _vertices[i] = {{verts[H[i]].x*dx, verts[H[i]].y*dy, Z_POS}, {DEF_COLOR}};
-        printf("%f %f\n", _vertices[i].position[0], _vertices[i].position[1]);
+        _vertices[i] = {{verts[H[i]].x*dx, verts[H[i]].y*dy, Z_POS}, color};
+        _screenVerts[i] = { verts[H[i]].x, verts[H[i]].y };
+//        printf("%f %f\n", _vertices[i].position[0], _vertices[i].position[1]);
     }
-    printf("\n");
+//    printf("\n");
     
     for (int i = 0; i < H.size(); i++) {
         Indices[i] = i;
     }
     
-    for (int i = 0; i < H.size(); i++) {
-        printf("%d ", Indices[i]);
-    }
-    printf("\n");
+//    for (int i = 0; i < H.size(); i++) {
+//        printf("%d ", Indices[i]);
+//    }
+//    printf("\n");
     
     _vertsN = H.size();
-    printf("verts: %d\n", _vertsN);
+//    printf("verts: %d\n", _vertsN);
+    
     
     delete [] verts;
 }
@@ -146,6 +164,16 @@ void Stone::generateVerts()
 int Stone::direction(APoint a, APoint b, APoint c)
 {
     return (b.x - a.x)*(c.y - b.y)-(b.y - a.y)*(c.x - b.x);
+}
+
+const APoint *Stone::getScreenVerts()
+{
+    return _screenVerts;
+}
+
+int Stone::getVertsNumber()
+{
+    return _vertsN;
 }
 
 void Stone::setPosition(const APoint &position)
@@ -168,7 +196,7 @@ void Stone::setRotation(const float rotation)
 
 void Stone::eval()
 {
-    APoint position = {_winSize.width/2, _winSize.height/2};
+    APoint position = getPosition();
     
     float dx = 2.0f/_winSize.width;
     float dy = 2.0f/_winSize.height;
@@ -197,5 +225,5 @@ void Stone::eval()
 
 Stone::~Stone()
 {
-    
+    delete [] _screenVerts;
 }

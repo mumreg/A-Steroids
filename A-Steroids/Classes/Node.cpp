@@ -16,6 +16,7 @@ Node::Node()
 {
     _angle = 0.0f;
     _position = {0, 0};
+    _anchorPoint = {0, 0};
     _isVisble = true;
     _touchEnabled = false;
 }
@@ -25,6 +26,16 @@ void Node::render()
     if (!_isVisble) {
         return;
     }
+}
+
+void Node::setAnchorPoint(const APoint &anchorPoint)
+{
+    _anchorPoint = anchorPoint;
+}
+
+const APoint& Node::getAnchorPoint()
+{
+    return _anchorPoint;
 }
 
 void Node::setVisible(bool flag)
@@ -75,6 +86,11 @@ void Node::addToTouchDispatcher()
 void Node::setShaderProgram(const char *programName)
 {
     _shaderProgram = ShadersCache::sharedInstance()->getProgram(programName);
+}
+
+void Node::callback()
+{
+    
 }
 
 ShaderProgram *Node::getShaderProgram()

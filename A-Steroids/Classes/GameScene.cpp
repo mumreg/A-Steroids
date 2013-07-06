@@ -9,16 +9,23 @@
 #include "GameScene.h"
 #include <math.h>
 
+using namespace std;
+
 #define SHIP_DAMP    0.99f
+#define SHIP_VERTS   {0, 0}, {0, 33.0f}, {64.0f, 33.0f/2}
+#define BULLET_VERTS {0.0f, 0.0f}, {0.0f, 15.0f}, {5.0f, 15.0f}, {5.0f, 0.0f}
+
+#define MIN_STONES      6
+#define MAX_STONES      8
+#define STONE_DAMP      1.0f
+#define STONE_VEL       100
+#define STONE_VEL_DAMP  250.0f
 
 GameScene::GameScene()
 {
     isGamePlaying = false;
     
     _winSize = getWinSize();
-    
-    _ship = new Ship("ship.png", {_winSize.width/2, _winSize.height/2});
-    addChild(_ship);
     
     _fireButton = new Sprite("fire_button.png");
     _fireButton->setPosition({_winSize.width - _fireButton->boundingBox().size.width/2,
@@ -28,19 +35,64 @@ GameScene::GameScene()
     _joystick = new Joystick();
     addChild(_joystick);
     
+    _ship = new Ship("ship.png", {_winSize.width/2, _winSize.height/2});
+    addChild(_ship);
+    
+    addStones();
     addPhysics();
     
     addToTouchDispatcher();
+}
+
+void GameScene::addStones()
+{
+    srand(time(NULL));
+    int stonesN = MIN_STONES + (rand() % (MAX_STONES - MIN_STONES));
+    
+    float xpos = 0, ypos = 0;
+    
+    for (int i = 0; i < stonesN; i++) {
+        Stone *st = new Stone();
+        
+        if (i < stonesN/2) {
+            xpos = rand() % (int)(_winSize.width/2 - _winSize.width/4);
+            ypos = rand() % (int)(_winSize.height);
+        }
+        else {
+            xpos = (_winSize.width/2 + _winSize.width/4) + (rand() % (int)(_winSize.width/2 - _winSize.width/4));
+            ypos = rand() % (int)(_winSize.height);
+        }
+        
+        st->setPosition({xpos, ypos});
+        addChild(st);
+        stones.push_back(st);
+    }
 }
 
 void GameScene::addPhysics()
 {
     _world = new World({0, 0, _winSize.width, _winSize.height});
     
-    APoint shipVerts[] = {{10.0f, 20.0f}, {20.0f, 30.0f}, {40.0f, 50.0f}};
+    APoint shipVerts[] = {SHIP_VERTS};
     shipBody = new Body(shipVerts, 3, BodyTypeTriagle, _ship);
     shipBody->setDamp(SHIP_DAMP);
     _world->addBody(shipBody, _ship->getPosition());
+    
+    vector<Node *>::iterator it = stones.begin();
+    for (; it != stones.end(); ++it) {
+        Stone *st = (Stone *)(*it);
+        
+        Body *stoneBody = new Body(st->getScreenVerts(), st->getVertsNumber(), BodyTypePolygon, st);
+        
+        float velX = -STONE_VEL/2 + (rand() % STONE_VEL);
+        float velY = -STONE_VEL/2 + (rand() % STONE_VEL);
+        
+        stoneBody->setVelocity({velX/STONE_VEL_DAMP, velY/STONE_VEL_DAMP});
+        stoneBody->setDamp(STONE_DAMP);
+        
+        _world->addBody(stoneBody, st->getPosition());
+    }
+    
     _joystick->setBody(shipBody);
 }
 
@@ -59,7 +111,7 @@ void GameScene::fireBullet()
     bullet->setPosition({xpos + xoffset, ypos + yoffset});
     bullet->setRotation(_ship->getRotation());
     
-    APoint bulletVerts[] = {{10.0f, 20.0f}, {20.0f, 30.0f}, {40.0f, 50.0f}, {50, 60.0f}};
+    APoint bulletVerts[] = {BULLET_VERTS};
     Body *bulletBody = new Body(bulletVerts, 4, BodyTypeRectangle, bullet);
     
     bulletBody->setRotation(bullet->getRotation());
