@@ -164,7 +164,7 @@ void Stone::generateVerts()
     float width = right.x - left.x;
     float height = up.y - down.y;
     
-    ARect _boundingBox = { -width/2,  -height/2, width, height};
+    ARect _boundingBox = { left.x, down.y, width, height};
     setBoundingBox(_boundingBox);
     
     APoint anchorPoint = getAnchorPoint();
