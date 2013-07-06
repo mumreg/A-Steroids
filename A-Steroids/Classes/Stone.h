@@ -28,6 +28,7 @@ public:
     virtual void setRotation(const float rotation);
     
     virtual void callback();
+    virtual ARect getBoundingBox();
     
     void removeFromView();
     const APoint *getScreenVerts();

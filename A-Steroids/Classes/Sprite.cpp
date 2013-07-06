@@ -84,7 +84,6 @@ ARect Sprite::getBoundingBox()
 {
     APoint position = getPosition();
     ASize texSize = _texture->getSize();
-    
     return {position.x - texSize.width/2, position.y - texSize.height/2, texSize.width, texSize.height};
 }
 

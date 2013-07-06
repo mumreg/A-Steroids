@@ -63,7 +63,7 @@ void World::calcWorld(float dt)
         APoint currentPos = sprite->getPosition();
         APoint newPos = {currentPos.x + velocity.x, currentPos.y + velocity.y};
         sprite->setPosition(newPos);
-        sprite->setRotation(body->getRotation());
+//        sprite->setRotation(body->getRotation());
         
         checkForDelete(newPos);
     }
@@ -102,10 +102,10 @@ float World::distance(float minA, float maxA, float minB, float maxB)
 void World::offsetPosition(APoint *position, Body *body)
 {
     Node *body_sprite = (Node *)body->getNode();
-    APoint anchorPoint = body->getNode()->getAnchorPoint();
     ASize body_size = body_sprite->getBoundingBox().size;
-    position->x -= body_size.width * anchorPoint.x;
-    position->y -= body_size.height * anchorPoint.y;
+    
+    position->x -= body_size.width/2;
+    position->y -= body_size.height/2;
 }
 
 //body1 - triangle or rect

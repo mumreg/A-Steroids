@@ -38,7 +38,7 @@ GameScene::GameScene()
     _joystick = new Joystick();
     addChild(_joystick);
     
-    _ship = new Ship("ship.png", {_winSize.width/2, _winSize.height/2});
+    _ship = new Ship("ship.png", {32, _winSize.height/2});
     addChild(_ship);
     
     addStones();

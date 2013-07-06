@@ -139,7 +139,7 @@ void Stone::generateVerts()
     color.g += dcolor;
     color.b += dcolor;
     
-    APoint left = { verts[H[0]].x, verts[H[0]].y };
+    APoint left = {0, 0};
     APoint right = left;
     APoint up = left;
     APoint down = left;
@@ -164,17 +164,17 @@ void Stone::generateVerts()
     float width = right.x - left.x;
     float height = up.y - down.y;
     
-    ARect _boundingBox = { left.x, down.y, width, height};
+    ARect _boundingBox = { left.x, down.y, width - left.x, height - down.y };
     setBoundingBox(_boundingBox);
     
     APoint anchorPoint = getAnchorPoint();
     for (int i = 0; i < H.size(); i++) {
         
-        _vertices[i] = {{verts[H[i]].x*dx - _boundingBox.size.width*anchorPoint.x*dx,
-                         verts[H[i]].y*dy - _boundingBox.size.height*anchorPoint.y*dy,
+        _vertices[i] = {{verts[H[i]].x*dx - _boundingBox.size.width*anchorPoint.x*dx - left.x*dx,
+                         verts[H[i]].y*dy - _boundingBox.size.height*anchorPoint.y*dy - down.y*dy,
                          Z_POS}, color};
         
-        _screenVerts[i] = { verts[H[i]].x, verts[H[i]].y };
+        _screenVerts[i] = { verts[H[i]].x - left.x, verts[H[i]].y - down.y};
         Indices[i] = i;
     }
     
@@ -198,9 +198,16 @@ int Stone::getVertsNumber()
     return _vertsN;
 }
 
+ARect Stone::getBoundingBox()
+{
+    ARect rect = Node::getBoundingBox();
+    APoint position = getPosition();
+    return { position.x - rect.size.width/2, position.y - rect.size.height/2, rect.size.width, rect.size.height };
+}
+
 void Stone::setPosition(const APoint &position)
 {
-    Node::setPosition(position);
+    Node::setPosition({ _winSize.width/2, _winSize.height/2 });
     eval();
 }
 
