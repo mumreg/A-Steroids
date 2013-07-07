@@ -7,6 +7,7 @@
 //
 
 #include "GameScene.h"
+#include "StartScene.h"
 #include <math.h>
 
 using namespace std;
@@ -30,21 +31,63 @@ GameScene::GameScene()
     
     _winSize = getWinSize();
     
+    addControls();
+    
+    _ship = new Ship("ship.png", {_winSize.width/2, _winSize.height/2});
+    addChild(_ship);
+    
+    addPhysics();
+    
+    addToTouchDispatcher();
+}
+
+void GameScene::addControls()
+{
     _fireButton = new Sprite("fire_button.png");
     _fireButton->setPosition({_winSize.width - _fireButton->getBoundingBox().size.width/2,
-                             _fireButton->getBoundingBox().size.height/2});
+        _fireButton->getBoundingBox().size.height/2});
     addChild(_fireButton);
     
     _joystick = new Joystick();
     addChild(_joystick);
+}
+
+void GameScene::resetShip()
+{
+    _ship->setPosition({ _winSize.width/2, _winSize.height/2 });
+    _ship->setRotation(0);
+    shipBody->setRotation(0);
+    shipBody->setAccel({ 0, 0 });
+    shipBody->setVelocity({ 0, 0 });
+    _ship->setVisible(true);
+}
+
+void GameScene::initGame()
+{
+    if (stones.size() != 0) {
+        removeStones();
+    }
     
-    _ship = new Ship("ship.png", {32, _winSize.height/2});
-    addChild(_ship);
-    
+    _joystick->reset();
+    resetShip();
     addStones();
-    addPhysics();
+}
+
+void GameScene::removeStones()
+{
+    vector<Node *>::iterator it = stones.begin();
+    for (; it != stones.end(); ++it) {
+        Node *node = (*it);
+        removeChild(node, true);
+    }
+    stones.clear();
     
-    addToTouchDispatcher();
+    vector<Body *>::iterator jt = stoneBodies.begin();
+    for (; jt != stoneBodies.end(); ++jt) {
+        Body *body = (*jt);
+        _world->removeBody(body, true);
+    }
+    stoneBodies.clear();
 }
 
 void GameScene::addStones()
@@ -54,7 +97,7 @@ void GameScene::addStones()
     
     float xpos = 0, ypos = 0;
     
-    for (int i = 0; i < 1; i++) {
+    for (int i = 0; i < stonesN; i++) {
         Stone *st = new Stone();
         
         if (i < stonesN/2) {
@@ -70,16 +113,6 @@ void GameScene::addStones()
         addChild(st);
         stones.push_back(st);
     }
-}
-
-void GameScene::addPhysics()
-{
-    _world = new World({0, 0, _winSize.width, _winSize.height});
-    
-    APoint shipVerts[] = {SHIP_VERTS};
-    shipBody = new Body(shipVerts, SHIP_VERTS_N, BodyTypeTriangle, _ship);
-    shipBody->setDamp(SHIP_DAMP);
-    _world->addBody(shipBody, _ship->getPosition());
     
     vector<Node *>::iterator it = stones.begin();
     for (; it != stones.end(); ++it) {
@@ -93,8 +126,19 @@ void GameScene::addPhysics()
         stoneBody->setVelocity({velX/STONE_VEL_DAMP, velY/STONE_VEL_DAMP});
         stoneBody->setDamp(STONE_DAMP);
         
+        stoneBodies.push_back(stoneBody);
         _world->addBody(stoneBody, st->getPosition());
     }
+}
+
+void GameScene::addPhysics()
+{
+    _world = new World({0, 0, _winSize.width, _winSize.height});
+    
+    APoint shipVerts[] = {SHIP_VERTS};
+    shipBody = new Body(shipVerts, SHIP_VERTS_N, BodyTypeTriangle, _ship);
+    shipBody->setDamp(SHIP_DAMP);
+    _world->addBody(shipBody, _ship->getPosition());
     
     _joystick->setBody(shipBody);
 }
@@ -161,6 +205,22 @@ void GameScene::stop()
     setTouchEnabled(false);
     _joystick->setTouchEnabled(false);
     isGamePlaying = false;
+}
+
+void GameScene::gameOver()
+{
+    stop();
+    StartScene *parent = (StartScene *)getParent();
+    parent->gameOver();
+}
+
+void GameScene::stoneCallback(Stone *stone)
+{
+    if (!isGamePlaying) {
+        return;
+    }
+    
+    
 }
 
 void GameScene::update(float dt)

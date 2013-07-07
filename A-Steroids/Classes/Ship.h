@@ -16,6 +16,7 @@ class Ship : public Sprite {
 public:
     Ship(const char *fileName, APoint position);
     virtual void setPosition(const APoint &position);
+    virtual void callback();
 private:
     ASize _winSize;
 };

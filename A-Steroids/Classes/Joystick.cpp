@@ -85,6 +85,12 @@ void Joystick::touchesEnded(ASet *set)
 //    isTouched = false;
 }
 
+void Joystick::reset()
+{
+    isTouched = false;
+    movingCircle->setPosition(staticCircle->getPosition());
+}
+
 void Joystick::restrictPoint(APoint *p)
 {
     APoint center = staticCircle->getPosition();

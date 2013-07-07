@@ -24,6 +24,7 @@ public:
     virtual void setRotation(const float rotation);
     
     virtual ARect getBoundingBox();
+    virtual void setTexture(const char *fileName);
     
 private:
     void eval();

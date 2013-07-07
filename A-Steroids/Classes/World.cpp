@@ -20,6 +20,31 @@ void World::addBody(Body *body, APoint position)
     _bodies.push_back(body);
 }
 
+void World::removeBody(Body *body, bool cleanup)
+{
+    vector<Body *>::iterator it = find(_bodies.begin(), _bodies.end(), body);
+    
+    Body *bodyPtr = (*it);
+    if (cleanup) {
+        delete bodyPtr;
+    }
+    
+    _bodies.erase(it);
+}
+
+void World::removeAll(bool cleanup)
+{
+    if (cleanup) {
+        vector<Body *>::iterator it = _bodies.begin();
+        for (; it != _bodies.end(); ++it) {
+            Body *bodyPtr = (*it);
+            delete bodyPtr;
+        }
+    }
+    
+    _bodies.clear();
+}
+
 void World::calcWorld(float dt)
 {
     vector<Body *>::iterator it = _bodies.begin();
@@ -27,17 +52,20 @@ void World::calcWorld(float dt)
     //check for collisions
     for (; it != _bodies.end(); ++it) {
         Body *body1 = (*it);
-        if (body1->getBodyType() == BodyTypeTriangle || body1->getBodyType() == BodyTypeRectangle) {
-            
-            vector<Body *>::iterator it2 = _bodies.begin();
-            
-            for (; it2 != _bodies.end(); ++it2) {
-                Body *body2 = (*it2);
+        if (body1->getNode()->isVisible()) {
+            if (body1->getBodyType() == BodyTypeTriangle || body1->getBodyType() == BodyTypeRectangle) {
                 
-                if (body1 != body2 && body2->getBodyType() == BodyTypePolygon) {
-                    if (checkCollision(body1, body2)) {
-                        body1->callCollisionCallback();
-                        body2->callCollisionCallback();
+                vector<Body *>::iterator it2 = _bodies.begin();
+                for (; it2 != _bodies.end(); ++it2) {
+                    Body *body2 = (*it2);
+                    if (body2->getNode()->isVisible())
+                    {
+                        if (body1 != body2 && body2->getBodyType() == BodyTypePolygon) {
+                            if (checkCollision(body1, body2)) {
+                                body1->callCollisionCallback();
+                                body2->callCollisionCallback();
+                            }
+                        }
                     }
                 }
             }

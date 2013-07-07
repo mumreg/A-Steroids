@@ -80,6 +80,14 @@ void Sprite::render()
     glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
 }
 
+void Sprite::setTexture(const char *fileName)
+{
+    delete _texture;
+    Image *image = new Image(fileName);
+    _texture = new Texture(image);
+    delete image;
+}
+
 ARect Sprite::getBoundingBox()
 {
     APoint position = getPosition();

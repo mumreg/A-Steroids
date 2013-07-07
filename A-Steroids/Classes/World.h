@@ -21,6 +21,9 @@ public:
     
     void addBody(Body *body, APoint position);
     void calcWorld(float dt);
+    void removeAll(bool cleanup);
+    void removeBody(Body *body, bool cleanup);
+    
 private:
     bool checkForDelete(APoint position);
     bool checkCollision(Body *body1, Body *body2);

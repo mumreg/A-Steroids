@@ -17,6 +17,7 @@ public:
     Layer();
     
     void addChild(Node *object);
+    void removeChild(Node *object, bool cleanup);
     virtual void render();
     virtual void update(float dt);
 private:

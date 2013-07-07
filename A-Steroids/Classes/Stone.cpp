@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
 //
 
-#include "Stone.h"
 #include <math.h>
+#include "Stone.h"
 #include "Utils.h"
+#include "GameScene.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ Stone::Stone()
 {
     _winSize = getWinSize();
     setAnchorPoint( {0.5f, 0.5f} );
+    _hits = MAX_HITS;
     
     generateVerts();
     eval();
@@ -43,9 +45,20 @@ Stone::Stone()
     glEnableVertexAttribArray(_colorLocation);
 }
 
+Stone::Stone(APoint *verts, int vertsN, int hits)
+{
+    
+}
+
+int Stone::getHits()
+{
+    return _hits;
+}
+
 void Stone::callback()
 {
-    setVisible(false);
+    GameScene *parent = (GameScene *)getParent();
+    parent->stoneCallback(this);
 }
 
 void Stone::render()
@@ -207,7 +220,7 @@ ARect Stone::getBoundingBox()
 
 void Stone::setPosition(const APoint &position)
 {
-    Node::setPosition({ _winSize.width/2, _winSize.height/2 });
+    Node::setPosition(position);
     eval();
 }
 

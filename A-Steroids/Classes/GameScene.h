@@ -22,10 +22,12 @@ class GameScene : public Layer {
 public:
     GameScene();
     ~GameScene();
+    void initGame();
     void start();
     void stop();
+    void gameOver();
     
-    void fireBullet();
+    void stoneCallback(Stone *stone);
     
     virtual void touchesBegan(ASet *set);
     virtual void touchesEnded(ASet *set);
@@ -34,8 +36,14 @@ public:
     virtual void update(float dt);
     
 private:
+    void addControls();
     void addPhysics();
+    
     void addStones();
+    void removeStones();
+    
+    void resetShip();
+    void fireBullet();
     
     Joystick *_joystick;
     Ship *_ship;
@@ -44,6 +52,7 @@ private:
     Body *shipBody;
     
     std::vector<Node *>stones;
+    std::vector<Body *>stoneBodies;
     
     World *_world;
     

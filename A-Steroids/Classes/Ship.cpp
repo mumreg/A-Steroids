@@ -7,11 +7,19 @@
 //
 
 #include "Ship.h"
+#include "GameScene.h"
 
 Ship::Ship(const char *fileName, APoint position) : Sprite(fileName)
 {
     _winSize = getWinSize();
     setPosition(position);
+}
+
+void Ship::callback()
+{
+    setVisible(false);
+    GameScene *parent = (GameScene *)getParent();
+    parent->gameOver();
 }
 
 void Ship::setPosition(const APoint &position)

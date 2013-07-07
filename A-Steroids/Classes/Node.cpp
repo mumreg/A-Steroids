@@ -98,6 +98,16 @@ ARect Node::getBoundingBox()
     return _boundingBox;
 }
 
+void Node::setParent(Node *parent)
+{
+    _parent = parent;
+}
+
+Node *Node::getParent()
+{
+    return _parent;
+}
+
 void Node::callback()
 {}
 

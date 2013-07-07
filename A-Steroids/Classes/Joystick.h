@@ -17,9 +17,9 @@ class Joystick : public Layer {
 public:
     Joystick();
     ~Joystick();
-    
-    void restrictPoint(APoint *p);
+
     void setBody(Body *body);
+    void reset();
     
     virtual void touchesBegan(ASet *set);
     virtual void touchesMoved(ASet *set);
@@ -29,6 +29,8 @@ public:
     
     ARect boundingBox();
 private:
+    void restrictPoint(APoint *p);
+    
     Sprite *staticCircle;
     Sprite *movingCircle;
     

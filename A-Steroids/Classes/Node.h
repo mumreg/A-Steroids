@@ -48,6 +48,9 @@ public:
     virtual void setTouchEnabled(bool touchEnabled);
     bool isTouchEnabled();
     
+    void setParent(Node *parent);
+    Node *getParent();
+    
     virtual void touchesBegan(ASet *set) {}
     virtual void touchesMoved(ASet *set) {}
     virtual void touchesEnded(ASet *set) {}
@@ -63,6 +66,7 @@ private:
     ARect _boundingBox;
     float _angle;
     bool _touchEnabled;
+    Node *_parent;
 };
 
 #endif /* defined(__A_Steroids__Node__) */

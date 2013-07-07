@@ -25,6 +25,15 @@ StartScene::StartScene()
     addToTouchDispatcher();
 }
 
+void StartScene::gameOver()
+{
+    startButton->setTexture("game_over_label.png");
+    startButton->setPosition({ winSize.width/2, winSize.height/2 });
+    startButton->setVisible(true);
+
+    isGameRunning = false;
+}
+
 void StartScene::touchesBegan(ASet *set)
 {
     ARect bBox = startButton->getBoundingBox();
@@ -47,6 +56,7 @@ void StartScene::touchesEnded(ASet *set)
         if (rectContainsPoint(&bBox, point) && startTouched) {
             startButton->setVisible(false);
             isGameRunning = true;
+            gameScene->initGame();
             gameScene->start();
         }
     }

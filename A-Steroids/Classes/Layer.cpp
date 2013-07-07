@@ -15,8 +15,22 @@ Layer::Layer()
     
 }
 
+void Layer::removeChild(Node *object, bool cleanup)
+{
+    vector<Node *>::iterator it = find(_childs.begin(), _childs.end(), object);
+    
+    Node *node = (*it);
+    if (cleanup) {
+        delete node;
+    }
+    
+    _childs.erase(it);
+    
+}
+
 void Layer::addChild(Node *object)
 {
+    object->setParent(this);
     _childs.push_back(object);
 }
 

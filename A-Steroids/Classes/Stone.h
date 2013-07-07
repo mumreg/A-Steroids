@@ -16,10 +16,12 @@
 #define MAX_VERTS   16
 #define MIN_VERTS   10
 #define MIN_ANGLES  5
+#define MAX_HITS    3
 
 class Stone : public Node {
 public:
     Stone();
+    Stone(APoint *verts, int vertsN, int hits);
     ~Stone();
     
     virtual void render();
@@ -33,6 +35,7 @@ public:
     void removeFromView();
     const APoint *getScreenVerts();
     int getVertsNumber();
+    int getHits();
     
 private:
     void eval();
@@ -54,6 +57,7 @@ private:
     matrix4 _modelView;
     int _vertsN;
     float maxSize;
+    int _hits;
 //    float _projection[16];
     
     ASize _winSize;
