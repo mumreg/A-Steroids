@@ -10,7 +10,9 @@
 #define __A_Steroids__Body__
 
 #include <iostream>
-#include "Sprite.h"
+#include "Node.h"
+
+class Node;
 
 enum BodyType {
     BodyTypeTriangle = 0,
@@ -31,6 +33,9 @@ public:
     
     void setRotation(const float angle);
     float getRotation();
+    
+    void setdAngle(float dangle);
+    float getdAngle();
     
     Node *getNode();
     
@@ -53,6 +58,7 @@ private:
     APoint _velocity;
     APoint _accel;
     float _rotation;
+    float _dangle;
     float _damp;
     
     void (*_callback)(void);

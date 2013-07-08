@@ -25,7 +25,6 @@ public:
     void removeBody(Body *body, bool cleanup);
     
 private:
-    bool checkForDelete(APoint position);
     bool checkCollision(Body *body1, Body *body2);
     void projectPolygon(APoint *verts, int vertsN, APoint axis, APoint offset, float *min, float *max);
     float distance(float minA, float maxA, float minB, float maxB);

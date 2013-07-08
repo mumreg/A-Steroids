@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
 //
 
+#include <math.h>
 #include "World.h"
 
 using namespace std;
@@ -91,9 +92,11 @@ void World::calcWorld(float dt)
         APoint currentPos = sprite->getPosition();
         APoint newPos = {currentPos.x + velocity.x, currentPos.y + velocity.y};
         sprite->setPosition(newPos);
-        sprite->setRotation(body->getRotation());
         
-        checkForDelete(newPos);
+        float angle = body->getRotation() + body->getdAngle();
+        sprite->setRotation(angle);
+        body->setRotation(angle);
+        
     }
 }
 
@@ -178,9 +181,4 @@ bool World::checkCollision(Body *body1, Body *body2)
     }
     
     return true;
-}
-
-bool World::checkForDelete(APoint position)
-{
-    return false;
 }

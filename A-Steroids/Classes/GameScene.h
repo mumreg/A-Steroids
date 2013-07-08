@@ -39,11 +39,15 @@ private:
     void addStones();
     void removeAllStones();
     void splitStone(Stone *stone);
-    void removeStone(Stone *stone);
+    void removeObject(Node *stone);
     void addStone(Stone *stone);
     
     void resetShip();
     void fireBullet();
+
+    void checkForAdd(float dt);
+    void checkForDelete();
+    bool outOfBounds(APoint &position);
     
     Joystick *_joystick;
     Ship *_ship;

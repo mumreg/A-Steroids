@@ -49,3 +49,8 @@ void Layer::update(float dt)
         (*it)->update(dt);
     }
 }
+
+vector<Node *> *Layer::children()
+{
+    return &_childs;
+}

@@ -109,7 +109,19 @@ Node *Node::getParent()
 }
 
 void Node::callback()
-{}
+{
+    //override me
+}
+
+void Node::setBody(Body *body)
+{
+    _body = body;
+}
+
+Body *Node::getBody()
+{
+    return _body;
+}
 
 ShaderProgram *Node::getShaderProgram()
 {

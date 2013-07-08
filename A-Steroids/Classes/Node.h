@@ -15,8 +15,11 @@
 #include "datatypes.h"
 #include "TouchProtocol.h"
 #include "matrx4.h"
+#include "Body.h"
 
 #define Z_POS       0.00
+
+class Body;
 
 class Node : public TouchProtocol {
 public:
@@ -40,6 +43,9 @@ public:
     virtual void setBoundingBox(ARect &rect);
     virtual ARect getBoundingBox();
     
+    virtual void setBody(Body *body);
+    virtual Body *getBody();
+    
     virtual void callback();
     
     void setShaderProgram(const char *programName);
@@ -59,7 +65,7 @@ public:
     
 private:
     ShaderProgram *_shaderProgram;
-    
+    Body *_body;
     bool _isVisble;
     APoint _position;
     APoint _anchorPoint;

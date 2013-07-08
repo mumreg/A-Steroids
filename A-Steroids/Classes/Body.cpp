@@ -25,6 +25,7 @@ Body::Body(const APoint *verts, int vertsNumber, BodyType type, Node *node)
     _accel = {0, 0};
     _rotation = 0;
     _damp = 1.0f;
+    _dangle = 0;
 }
 
 APoint *Body::getVerts()
@@ -65,6 +66,16 @@ void Body::setRotation(const float angle)
 float Body::getRotation()
 {
     return _rotation;
+}
+
+void Body::setdAngle(float dangle)
+{
+    _dangle = dangle;
+}
+
+float Body::getdAngle()
+{
+    return _dangle;
 }
 
 void Body::setVelocity(const APoint velocity)

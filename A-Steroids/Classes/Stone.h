@@ -38,9 +38,6 @@ public:
     int getVertsNumber();
     int getHits();
     
-    void setBody(Body *body);
-    Body *getBody();
-    
 private:
     void eval();
     void updatePosition();
@@ -48,7 +45,6 @@ private:
     void generateVerts();
     void setupDraw();
 
-    Body *_body;
     GLuint _colorLocation;
     GLuint _mvLocation;
     GLuint _positionLocation;

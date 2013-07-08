@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "BaseEngine.h"
+#include "Body.h"
 
 class Bullet : public Sprite {
 public:

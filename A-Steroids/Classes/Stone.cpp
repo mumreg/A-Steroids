@@ -282,16 +282,6 @@ ARect Stone::getBoundingBox()
     return { position.x - rect.size.width/2, position.y - rect.size.height/2, rect.size.width, rect.size.height };
 }
 
-void Stone::setBody(Body *body)
-{
-    _body = body;
-}
-
-Body *Stone::getBody()
-{
-    return _body;
-}
-
 void Stone::setPosition(const APoint &position)
 {
     Node::setPosition(position);

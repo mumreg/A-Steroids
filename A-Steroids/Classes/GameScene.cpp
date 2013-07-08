@@ -24,6 +24,7 @@ using namespace std;
 #define STONE_DAMP      1.0f
 #define STONE_VEL       100
 #define STONE_VEL_DAMP  250.0f
+#define STONES_TIMEOUT  3.0f
 
 GameScene::GameScene()
 {
@@ -84,14 +85,18 @@ void GameScene::removeAllStones()
     stones.clear();
 }
 
-void GameScene::removeStone(Stone *stone)
+void GameScene::removeObject(Node *node)
 {
-    vector<Node *>::iterator it = find(stones.begin(), stones.end(), stone);
+    vector<Node *>::iterator it = find(stones.begin(), stones.end(), node);
     
-    Stone *st = (Stone *)(*it);
-    Body *body = stone->getBody();
+    Node *obj = node;
+    if (it != stones.end()) {
+        obj = (*it);
+    }
+    
+    Body *body = node->getBody();
     _world->removeBody(body, true);
-    removeChild(st, true);
+    removeChild(obj, true);
     
     stones.erase(it);
 }
@@ -138,6 +143,9 @@ void GameScene::addStones()
         
         stoneBody->setVelocity({velX/STONE_VEL_DAMP, velY/STONE_VEL_DAMP});
         stoneBody->setDamp(STONE_DAMP);
+        float angle = (-10 + (rand() % 20))/100.0f;
+        stoneBody->setdAngle(angle);
+        
         st->setBody(stoneBody);
         
         _world->addBody(stoneBody, st->getPosition());
@@ -164,7 +172,7 @@ void GameScene::fireBullet()
     float xpos = _ship->getPosition().x + _ship->getBoundingBox().size.width/2*cosf(angle);
     float ypos = _ship->getPosition().y + _ship->getBoundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
     
-    Sprite *bullet = new Bullet("bullet.png");
+    Bullet *bullet = new Bullet("bullet.png");
     
     float xoffset = bullet->getBoundingBox().size.width/2*cosf(angle);
     float yoffset = bullet->getBoundingBox().size.width/2*cosf(90*DegreesToRadiansFactor - angle);
@@ -179,8 +187,10 @@ void GameScene::fireBullet()
     bulletBody->setVelocity({bullet->getPosition().x - _ship->getPosition().x,
                              bullet->getPosition().y - _ship->getPosition().y});
     
+    bullet->setBody(bulletBody);
     _world->addBody(bulletBody, bullet->getPosition());
     
+    stones.push_back(bullet);
     addChild(bullet);
 }
 
@@ -290,6 +300,9 @@ void GameScene::splitStone(Stone *stone)
     stoneBody1->setVelocity({ minVel + stoneVel.x*2*minVel, - 1 - stoneVel.y*2 });
     stoneBody2->setVelocity({ minVel + stoneVel.x*2*minVel, 1 + stoneVel.y*2 });
     
+    stoneBody1->setdAngle(-stone->getBody()->getdAngle()*2);
+    stoneBody2->setdAngle(stone->getBody()->getdAngle()*2);
+    
     stone1->setBody(stoneBody1);
     stone2->setBody(stoneBody2);
     
@@ -303,12 +316,14 @@ void GameScene::update(float dt)
     if (isGamePlaying) {
         _world->calcWorld(dt);
         _joystick->update(dt);
+        checkForDelete();
+        checkForAdd(dt);
         
         if (toRemove.size() != 0) {
             vector<Node *>::iterator it = toRemove.begin();
             for (; it != toRemove.end(); ++it) {
-                Stone *stone = (Stone *)(*it);
-                removeStone(stone);
+                Node *node = (Node *)(*it);
+                removeObject(node);
             }
             
             toRemove.clear();
@@ -323,6 +338,94 @@ void GameScene::update(float dt)
             toAdd.clear();
         }
     }
+}
+
+void GameScene::checkForAdd(float dt)
+{
+    static float timeout = 0;
+    timeout += dt;
+    
+    if (timeout > STONES_TIMEOUT || stones.size() < MIN_STONES) {
+        timeout = 0;
+        int stonesN = 6 + (rand() % 4);
+        
+        for (int i = 0; i < stonesN; i++) {
+            Stone *stone = new Stone();
+            Body *stoneBody = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone);
+            stone->setBody(stoneBody);
+            
+            float velX = rand() % STONE_VEL;
+            float velY = rand() % STONE_VEL;
+            
+            int side = 1 + rand() % 4;
+            switch (side) {
+                case 1: //left
+                {
+                    stone->setPosition({ -stone->getBoundingBox().size.width, (float)(rand() % ((int)_winSize.height/2)) });
+                    break;
+                }
+                case 2: //right
+                {
+                    stone->setPosition({ _winSize.width + stone->getBoundingBox().size.width, (float)(rand() % (int)_winSize.height/2) });
+                    velX = -velX;
+                    break;
+                }
+                case 3: //up
+                {
+                    stone->setPosition({ (float)(rand() % (int)_winSize.width), _winSize.height + stone->getBoundingBox().size.height/2 });
+                    velY = -velY;
+                    break;
+                }
+                case 4: //down
+                {
+                    stone->setPosition({ (float)(rand() % (int)_winSize.width), -stone->getBoundingBox().size.height/2 });
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
+            
+            stoneBody->setVelocity({velX/STONE_VEL_DAMP, velY/STONE_VEL_DAMP});
+            float angle = (-10 + (rand() % 20))/100.0f;
+            stoneBody->setdAngle(angle);
+            
+            toAdd.push_back(stone);
+        }
+    }
+}
+
+void GameScene::checkForDelete()
+{
+    vector<Node *> *childs = this->children();
+    vector<Node *>::iterator it = childs->begin();
+    for (; it != childs->end(); ++it) {
+        Node *child = (*it);
+        APoint position = child->getPosition();
+        
+        if (outOfBounds(position)) {
+            toRemove.push_back(child);
+        }
+    }
+}
+
+bool GameScene::outOfBounds(APoint &position)
+{
+    bool flag = false;
+    if (position.x < -_winSize.width/2) {
+        flag = true;
+    }
+    if (position.y < -_winSize.height/2) {
+        flag = true;
+    }
+    if (position.x > _winSize.width*1.5f) {
+        flag = true;
+    }
+    if (position.y > _winSize.height*1.5) {
+        flag = true;
+    }
+    
+    return flag;
 }
 
 GameScene::~GameScene()
