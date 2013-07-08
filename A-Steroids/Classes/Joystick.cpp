@@ -23,6 +23,8 @@ Joystick::Joystick()
     movingCircle->setPosition(staticCircle->getPosition());
     addChild(movingCircle);
     
+    prevPoint = {0, 0};
+    
     addToTouchDispatcher();
     
     isTouched = false;
@@ -39,6 +41,10 @@ void Joystick::update(float dt)
         APoint center = staticCircle->getPosition();
         APoint dp = {(movingCircle->getPosition().x - center.x)/PTM_RATIO,
                         (movingCircle->getPosition().y - center.y)/PTM_RATIO};
+        
+        if (dp.x == 0 && dp.y == 0) {
+            return;
+        }
         
         float len1 = movingCircle->getPosition().y - center.y;
         float len2 = vecLength({movingCircle->getPosition().x - center.x,

@@ -345,17 +345,17 @@ void GameScene::checkForAdd(float dt)
     static float timeout = 0;
     timeout += dt;
     
-    if (timeout > STONES_TIMEOUT || stones.size() < MIN_STONES) {
+    if (timeout > STONES_TIMEOUT || stones.size() < MIN_STONES/2) {
         timeout = 0;
-        int stonesN = 6 + (rand() % 4);
+        int stonesN = 4 + (rand() % 3);
         
         for (int i = 0; i < stonesN; i++) {
             Stone *stone = new Stone();
             Body *stoneBody = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone);
             stone->setBody(stoneBody);
             
-            float velX = rand() % STONE_VEL;
-            float velY = rand() % STONE_VEL;
+            float velX = STONE_VEL/2 + rand() % STONE_VEL/2;
+            float velY = STONE_VEL/2 + rand() % STONE_VEL/2;
             
             int side = 1 + rand() % 4;
             switch (side) {
