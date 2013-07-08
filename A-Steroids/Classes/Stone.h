@@ -12,11 +12,12 @@
 #include <iostream>
 #include "Node.h"
 #include "Texture.h"
+#include "Body.h"
 
 #define MAX_VERTS   16
 #define MIN_VERTS   10
 #define MIN_ANGLES  5
-#define MAX_HITS    3
+#define MAX_HITS    2
 
 class Stone : public Node {
 public:
@@ -37,15 +38,19 @@ public:
     int getVertsNumber();
     int getHits();
     
+    void setBody(Body *body);
+    Body *getBody();
+    
 private:
     void eval();
     void updatePosition();
     int direction(APoint a, APoint b, APoint c);
     void generateVerts();
+    void setupDraw();
 
+    Body *_body;
     GLuint _colorLocation;
     GLuint _mvLocation;
-//    GLuint _projLocation;
     GLuint _positionLocation;
     
     GLuint _vertexBuffer;
@@ -58,7 +63,6 @@ private:
     int _vertsN;
     float maxSize;
     int _hits;
-//    float _projection[16];
     
     ASize _winSize;
 };

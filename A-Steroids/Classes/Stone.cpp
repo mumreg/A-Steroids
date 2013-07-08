@@ -24,6 +24,75 @@ Stone::Stone()
     _hits = MAX_HITS;
     
     generateVerts();
+    setupDraw();
+}
+
+Stone::Stone(APoint *verts, int vertsN, int hits)
+{
+    _winSize = getWinSize();
+    setAnchorPoint( {0.5f, 0.5f} );
+    _hits = hits;
+    
+    float dx = 2.0f/_winSize.width;
+    float dy = 2.0f/_winSize.height;
+    
+    AColor color = {DEF_COLOR};
+    float dcolor = (-DCOLOR/2 + (rand() % DCOLOR))/255.0f;
+    color.r += dcolor;
+    color.g += dcolor;
+    color.b += dcolor;
+    
+    APoint left = {0, 0};
+    APoint right = left;
+    APoint up = left;
+    APoint down = left;
+    
+    for (int i = 0; i < vertsN; i++) {
+        APoint point = verts[i];
+        
+        if (point.x < left.x) {
+            left = point;
+        }
+        if (point.x > right.x) {
+            right = point;
+        }
+        if (point.y < down.y) {
+            down = point;
+        }
+        if (point.y > up.y) {
+            up = point;
+        }
+    }
+    
+    float width = right.x - left.x;
+    float height = up.y - down.y;
+    
+    ARect _boundingBox = { left.x, down.y, width - left.x, height - down.y };
+    setBoundingBox(_boundingBox);
+    
+    APoint anchorPoint = getAnchorPoint();
+    
+    _screenVerts = new APoint[vertsN];
+    
+    for (int i = 0; i < vertsN; i++) {
+        
+        _vertices[i] = {{verts[i].x*dx - _boundingBox.size.width*anchorPoint.x*dx,
+            verts[i].y*dy - _boundingBox.size.height*anchorPoint.y*dy,
+            Z_POS}, color};
+        
+        _screenVerts[i] = { verts[i].x, verts[i].y };
+        Indices[i] = i;
+    }
+    
+    _vertsN = vertsN;
+    
+//    setPosition({ _boundingBox.origin.x + _boundingBox.size.width/2, _boundingBox.origin.y + _boundingBox.size.height/2 });
+    
+    setupDraw();
+}
+
+void Stone::setupDraw()
+{
     eval();
     
     setShaderProgram(kShaderColor);
@@ -43,11 +112,6 @@ Stone::Stone()
     _colorLocation = glGetAttribLocation(getShaderProgram()->getProgram(), kShaderColorAttr);
     glEnableVertexAttribArray(_positionLocation);
     glEnableVertexAttribArray(_colorLocation);
-}
-
-Stone::Stone(APoint *verts, int vertsN, int hits)
-{
-    
 }
 
 int Stone::getHits()
@@ -218,6 +282,16 @@ ARect Stone::getBoundingBox()
     return { position.x - rect.size.width/2, position.y - rect.size.height/2, rect.size.width, rect.size.height };
 }
 
+void Stone::setBody(Body *body)
+{
+    _body = body;
+}
+
+Body *Stone::getBody()
+{
+    return _body;
+}
+
 void Stone::setPosition(const APoint &position)
 {
     Node::setPosition(position);
@@ -227,7 +301,6 @@ void Stone::setPosition(const APoint &position)
 void Stone::setPosition(float x, float y)
 {
     setPosition({x, y});
-    eval();
 }
 
 void Stone::setRotation(const float rotation)

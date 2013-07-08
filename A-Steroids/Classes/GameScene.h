@@ -30,9 +30,6 @@ public:
     void stoneCallback(Stone *stone);
     
     virtual void touchesBegan(ASet *set);
-    virtual void touchesEnded(ASet *set);
-    virtual void touchesMoved(ASet *set);
-    
     virtual void update(float dt);
     
 private:
@@ -40,7 +37,10 @@ private:
     void addPhysics();
     
     void addStones();
-    void removeStones();
+    void removeAllStones();
+    void splitStone(Stone *stone);
+    void removeStone(Stone *stone);
+    void addStone(Stone *stone);
     
     void resetShip();
     void fireBullet();
@@ -52,7 +52,8 @@ private:
     Body *shipBody;
     
     std::vector<Node *>stones;
-    std::vector<Body *>stoneBodies;
+    std::vector<Node *>toAdd;
+    std::vector<Node *>toRemove;
     
     World *_world;
     

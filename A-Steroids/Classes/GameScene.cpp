@@ -28,14 +28,11 @@ using namespace std;
 GameScene::GameScene()
 {
     isGamePlaying = false;
-    
     _winSize = getWinSize();
     
     addControls();
-    
     _ship = new Ship("ship.png", {_winSize.width/2, _winSize.height/2});
     addChild(_ship);
-    
     addPhysics();
     
     addToTouchDispatcher();
@@ -65,7 +62,7 @@ void GameScene::resetShip()
 void GameScene::initGame()
 {
     if (stones.size() != 0) {
-        removeStones();
+        removeAllStones();
     }
     
     _joystick->reset();
@@ -73,21 +70,41 @@ void GameScene::initGame()
     addStones();
 }
 
-void GameScene::removeStones()
+void GameScene::removeAllStones()
 {
     vector<Node *>::iterator it = stones.begin();
     for (; it != stones.end(); ++it) {
-        Node *node = (*it);
-        removeChild(node, true);
+        Stone *stone = (Stone *)(*it);
+        
+        Body *body = stone->getBody();
+        _world->removeBody(body, true);
+        
+        removeChild(stone, true);
     }
     stones.clear();
+}
+
+void GameScene::removeStone(Stone *stone)
+{
+    vector<Node *>::iterator it = find(stones.begin(), stones.end(), stone);
     
-    vector<Body *>::iterator jt = stoneBodies.begin();
-    for (; jt != stoneBodies.end(); ++jt) {
-        Body *body = (*jt);
-        _world->removeBody(body, true);
-    }
-    stoneBodies.clear();
+    Stone *st = (Stone *)(*it);
+    Body *body = stone->getBody();
+    _world->removeBody(body, true);
+    removeChild(st, true);
+    
+    stones.erase(it);
+}
+
+void GameScene::addStone(Stone *stone)
+{
+    Body *stoneBody = stone->getBody();
+    stoneBody->setDamp(STONE_DAMP);
+    
+    _world->addBody(stoneBody, stone->getPosition());
+    
+    addChild(stone);
+    stones.push_back(stone);
 }
 
 void GameScene::addStones()
@@ -100,6 +117,8 @@ void GameScene::addStones()
     for (int i = 0; i < stonesN; i++) {
         Stone *st = new Stone();
         
+        xpos = _winSize.width/2;
+        ypos = _winSize.height/2;
         if (i < stonesN/2) {
             xpos = rand() % (int)(_winSize.width/2 - _winSize.width/4);
             ypos = rand() % (int)(_winSize.height);
@@ -110,13 +129,7 @@ void GameScene::addStones()
         }
         
         st->setPosition({xpos, ypos});
-        addChild(st);
         stones.push_back(st);
-    }
-    
-    vector<Node *>::iterator it = stones.begin();
-    for (; it != stones.end(); ++it) {
-        Stone *st = (Stone *)(*it);
         
         Body *stoneBody = new Body(st->getScreenVerts(), st->getVertsNumber(), BodyTypePolygon, st);
         
@@ -125,9 +138,10 @@ void GameScene::addStones()
         
         stoneBody->setVelocity({velX/STONE_VEL_DAMP, velY/STONE_VEL_DAMP});
         stoneBody->setDamp(STONE_DAMP);
+        st->setBody(stoneBody);
         
-        stoneBodies.push_back(stoneBody);
         _world->addBody(stoneBody, st->getPosition());
+        addChild(st);
     }
 }
 
@@ -183,16 +197,6 @@ void GameScene::touchesBegan(ASet *set)
     }
 }
 
-void GameScene::touchesEnded(ASet *set)
-{
-    
-}
-
-void GameScene::touchesMoved(ASet *set)
-{
-    
-}
-
 void GameScene::start()
 {
     setTouchEnabled(true);
@@ -220,7 +224,78 @@ void GameScene::stoneCallback(Stone *stone)
         return;
     }
     
+    splitStone(stone);
+}
+
+void GameScene::splitStone(Stone *stone)
+{
+    if (stone->getHits() == 1) {
+        stone->setVisible(false);
+        toRemove.push_back(stone);
+        return;
+    }
     
+    int vertsN = stone->getVertsNumber();
+    const APoint *stoneVerts = stone->getScreenVerts();
+    
+    vector<APoint> newVerts;
+    int i = 0;
+    if (vertsN >= 4) {
+        for (int i = 0; i < vertsN; i++) {
+            newVerts.push_back(stoneVerts[i]);
+        }
+    }
+    else {
+        while (vertsN < 4) {
+            APoint p1 = stoneVerts[i];
+            APoint p2 = stoneVerts[(i + 1) % vertsN];
+            
+            APoint newPoint = { p1.x + (p2.x - p1.x)/2, p2.y + (p2.y - p1.y)/2 };
+            
+            newVerts.push_back(p1);
+            newVerts.push_back(newPoint);
+            newVerts.push_back(p2);
+            vertsN++;
+        }
+    }
+    
+    int newStoneVertsN = vertsN/2 + 1;
+    APoint *stoneVerts1 = new APoint[newStoneVertsN];
+    APoint *stoneVerts2 = new APoint[newStoneVertsN];
+    
+    for (int i = 0; i < newStoneVertsN; i++) {
+        stoneVerts1[i] = newVerts[i];
+    }
+    
+    stoneVerts2[0] = newVerts[0];
+    for (int i = 0; i < newStoneVertsN - 1; i++) {
+        stoneVerts2[i + 1] = newVerts[(i + vertsN/2)];
+    }
+    
+    Stone *stone1 = new Stone(stoneVerts1, newStoneVertsN, stone->getHits() - 1);
+    Stone *stone2 = new Stone(stoneVerts2, newStoneVertsN, stone->getHits() - 1);
+    
+    APoint stonePos = stone->getPosition();
+    float offset = 10;
+    APoint stonePos1 = { stonePos.x - offset, stonePos.y - offset };
+    APoint stonePos2 = { stonePos.x + offset, stonePos.y + offset };
+    stone1->setPosition(stonePos1);
+    stone2->setPosition(stonePos2);
+    
+    Body *stoneBody1 = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone1);
+    Body *stoneBody2 = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone2);
+    
+    APoint stoneVel = stone->getBody()->getVelocity();
+    int minVel = -1 + (rand() % 2);
+    stoneBody1->setVelocity({ minVel + stoneVel.x*2*minVel, - 1 - stoneVel.y*2 });
+    stoneBody2->setVelocity({ minVel + stoneVel.x*2*minVel, 1 + stoneVel.y*2 });
+    
+    stone1->setBody(stoneBody1);
+    stone2->setBody(stoneBody2);
+    
+    toRemove.push_back(stone);
+    toAdd.push_back(stone1);
+    toAdd.push_back(stone2);
 }
 
 void GameScene::update(float dt)
@@ -228,6 +303,25 @@ void GameScene::update(float dt)
     if (isGamePlaying) {
         _world->calcWorld(dt);
         _joystick->update(dt);
+        
+        if (toRemove.size() != 0) {
+            vector<Node *>::iterator it = toRemove.begin();
+            for (; it != toRemove.end(); ++it) {
+                Stone *stone = (Stone *)(*it);
+                removeStone(stone);
+            }
+            
+            toRemove.clear();
+        }
+        
+        if (toAdd.size() != 0) {
+            vector<Node *>::iterator it = toAdd.begin();
+            for (; it != toAdd.end(); ++it) {
+                Stone *stone = (Stone *)(*it);
+                addStone(stone);
+            }
+            toAdd.clear();
+        }
     }
 }
 
