@@ -10,7 +10,6 @@
 #define __A_Steroids__ShaderProgram__
 
 #include <iostream>
-#include "GameConfig.h"
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
