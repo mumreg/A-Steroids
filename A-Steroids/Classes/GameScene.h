@@ -54,6 +54,7 @@ private:
     Sprite *_fireButton;
     ASize _winSize;
     Body *shipBody;
+    float duration;
     
     std::vector<Node *>stones;
     std::vector<Node *>toAdd;

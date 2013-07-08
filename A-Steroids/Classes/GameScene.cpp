@@ -209,6 +209,7 @@ void GameScene::touchesBegan(ASet *set)
 
 void GameScene::start()
 {
+    duration = 0;
     setTouchEnabled(true);
     _joystick->setTouchEnabled(true);
     isGamePlaying = true;
@@ -344,10 +345,12 @@ void GameScene::checkForAdd(float dt)
 {
     static float timeout = 0;
     timeout += dt;
+    duration += dt;
     
     if (timeout > STONES_TIMEOUT || stones.size() < MIN_STONES/2) {
         timeout = 0;
-        int stonesN = 4 + (rand() % 3);
+        int count = 1 + duration/20;
+        int stonesN = 4 + (rand() % count);
         
         for (int i = 0; i < stonesN; i++) {
             Stone *stone = new Stone();
