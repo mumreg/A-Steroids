@@ -2,7 +2,7 @@
 //  Sprite.cpp
 //  A-Steroids
 //
-//  Created by Mikhail Perekhodtsev on 18.06.13.
+//  Created by Mikhail Perekhodtsev on 01.07.13.
 //  Copyright (c) 2013 Mikhail Perekhodtsev. All rights reserved.
 //
 

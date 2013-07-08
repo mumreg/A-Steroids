@@ -25,7 +25,6 @@
 		ED2C95B91785C75700D6A31D /* Stone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C95B71785C75700D6A31D /* Stone.cpp */; };
 		ED2C9A571753D07200D0C2F8 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A551753D07200D0C2F8 /* ShaderProgram.cpp */; };
 		ED2C9A5B1753D5F900D0C2F8 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2C9A591753D5F900D0C2F8 /* Utils.cpp */; };
-		ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */; };
 		ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */; };
 		ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */; };
 		ED2D2F051780B86700B5BAF4 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED2D2F031780B86700B5BAF4 /* StartScene.cpp */; };
@@ -85,7 +84,6 @@
 		ED2C9A561753D07200D0C2F8 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderProgram.h; path = Classes/ShaderProgram.h; sourceTree = "<group>"; };
 		ED2C9A591753D5F900D0C2F8 /* Utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = Utils.cpp; path = "A-Steroids/Classes/Utils.cpp"; sourceTree = "<group>"; };
 		ED2C9A5A1753D5F900D0C2F8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = "A-Steroids/Classes/Utils.h"; sourceTree = "<group>"; };
-		ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchProtocol.cpp; path = "A-Steroids/Classes/TouchProtocol.cpp"; sourceTree = "<group>"; };
 		ED2D2EF917807C7F00B5BAF4 /* TouchProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchProtocol.h; path = "A-Steroids/Classes/TouchProtocol.h"; sourceTree = "<group>"; };
 		ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchDispatcher.cpp; path = "A-Steroids/Classes/TouchDispatcher.cpp"; sourceTree = "<group>"; };
 		ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchDispatcher.h; path = "A-Steroids/Classes/TouchDispatcher.h"; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			children = (
 				ED2D2EFF17809B8B00B5BAF4 /* ASet.cpp */,
 				ED2D2F0017809B8C00B5BAF4 /* ASet.h */,
-				ED2D2EF817807C7F00B5BAF4 /* TouchProtocol.cpp */,
 				ED2D2EF917807C7F00B5BAF4 /* TouchProtocol.h */,
 				ED2D2EFB17807F1800B5BAF4 /* TouchDispatcher.cpp */,
 				ED2D2EFC17807F1800B5BAF4 /* TouchDispatcher.h */,
@@ -498,7 +495,6 @@
 				ED3615FA1779B23F009D852F /* FileUtils.cpp in Sources */,
 				ED3615FE1779B25D009D852F /* FileUtils_objc.m in Sources */,
 				ED96D0E7177ED7EE009E5364 /* matrx4.cpp in Sources */,
-				ED2D2EFA17807C7F00B5BAF4 /* TouchProtocol.cpp in Sources */,
 				ED2D2EFD17807F1800B5BAF4 /* TouchDispatcher.cpp in Sources */,
 				ED2D2F0117809B8C00B5BAF4 /* ASet.cpp in Sources */,
 				ED2D2F051780B86700B5BAF4 /* StartScene.cpp in Sources */,
