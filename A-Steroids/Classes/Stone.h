@@ -43,6 +43,8 @@ private:
     void updatePosition();
     int direction(APoint a, APoint b, APoint c);
     void generateVerts();
+    void initStone(int hits);
+    void makeVerts(APoint *verts, int vertsN);
     void setupDraw();
 
     GLuint _colorLocation;

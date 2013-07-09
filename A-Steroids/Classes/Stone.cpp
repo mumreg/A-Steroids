@@ -19,20 +19,21 @@ using namespace std;
 
 Stone::Stone()
 {
-    _winSize = getWinSize();
-    setAnchorPoint( {0.5f, 0.5f} );
-    _hits = MAX_HITS;
+    initStone(MAX_HITS);
     
     generateVerts();
     setupDraw();
 }
 
-Stone::Stone(APoint *verts, int vertsN, int hits)
+void Stone::initStone(int hits)
 {
     _winSize = getWinSize();
     setAnchorPoint( {0.5f, 0.5f} );
     _hits = hits;
-    
+}
+
+void Stone::makeVerts(APoint *verts, int vertsN)
+{
     float dx = 2.0f/_winSize.width;
     float dy = 2.0f/_winSize.height;
     
@@ -85,8 +86,12 @@ Stone::Stone(APoint *verts, int vertsN, int hits)
     }
     
     _vertsN = vertsN;
-    
-//    setPosition({ _boundingBox.origin.x + _boundingBox.size.width/2, _boundingBox.origin.y + _boundingBox.size.height/2 });
+}
+
+Stone::Stone(APoint *verts, int vertsN, int hits)
+{
+    initStone(hits);
+    makeVerts(verts, vertsN);
     
     setupDraw();
 }
