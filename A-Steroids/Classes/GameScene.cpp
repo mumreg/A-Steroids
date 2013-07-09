@@ -293,8 +293,8 @@ void GameScene::splitStone(Stone *stone)
     stone1->setPosition(stonePos1);
     stone2->setPosition(stonePos2);
     
-    Body *stoneBody1 = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone1);
-    Body *stoneBody2 = new Body(stone->getScreenVerts(), stone->getVertsNumber(), BodyTypePolygon, stone2);
+    Body *stoneBody1 = new Body(stone1->getScreenVerts(), stone1->getVertsNumber(), BodyTypePolygon, stone1);
+    Body *stoneBody2 = new Body(stone2->getScreenVerts(), stone2->getVertsNumber(), BodyTypePolygon, stone2);
     
     APoint stoneVel = stone->getBody()->getVelocity();
     int minVel = -1 + (rand() % 2);

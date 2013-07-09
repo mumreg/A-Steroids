@@ -32,6 +32,7 @@ void StartScene::gameOver()
     startButton->setVisible(true);
 
     isGameRunning = false;
+    setTouchEnabled(true);
 }
 
 void StartScene::touchesBegan(ASet *set)
@@ -54,6 +55,7 @@ void StartScene::touchesEnded(ASet *set)
         APoint *point = set->getObjectAtIndex(i);
         
         if (rectContainsPoint(&bBox, point) && startTouched) {
+            setTouchEnabled(false);
             startButton->setVisible(false);
             isGameRunning = true;
             gameScene->initGame();

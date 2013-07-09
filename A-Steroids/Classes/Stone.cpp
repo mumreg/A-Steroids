@@ -14,7 +14,7 @@
 using namespace std;
 
 #define DEF_COLOR       164/255.0f, 164/255.0f, 164/255.0f, 1.0f
-#define DCOLOR          40
+#define DCOLOR          70
 #define STONE_MAX_SIZE  150
 
 Stone::Stone()
