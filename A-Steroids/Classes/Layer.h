@@ -14,7 +14,8 @@
 
 class Layer : public Node {
 public:
-    Layer();
+    Layer() {}
+    virtual ~Layer();
     
     void addChild(Node *object);
     void removeChild(Node *object, bool cleanup);

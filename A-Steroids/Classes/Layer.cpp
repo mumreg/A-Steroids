@@ -10,11 +10,6 @@
 
 using namespace std;
 
-Layer::Layer()
-{
-    
-}
-
 void Layer::removeChild(Node *object, bool cleanup)
 {
     vector<Node *>::iterator it = find(_childs.begin(), _childs.end(), object);
@@ -53,4 +48,15 @@ void Layer::update(float dt)
 vector<Node *> *Layer::children()
 {
     return &_childs;
+}
+
+Layer::~Layer()
+{
+    vector<Node *>::iterator it = _childs.begin();
+    for (; it != _childs.end(); ++it) {
+        Node *node = (*it);
+        delete node;
+    }
+    
+    _childs.clear();
 }

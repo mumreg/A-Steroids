@@ -16,7 +16,7 @@
 class Sprite : public Node {
 public:
     Sprite(const char *fileName);
-    ~Sprite();
+    virtual ~Sprite();
     
     virtual void render();
     virtual void setPosition(const APoint &position);
